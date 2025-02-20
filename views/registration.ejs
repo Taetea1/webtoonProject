@@ -11,6 +11,7 @@
 <body>
   <form enctype="multipart/form-data">
     <input type="file" id="image" name="image" />
+    <input type="file" id="bannerurl" name="bannerurl" />
     <input id="title" name="title" placeholder="웹툰 제목을 입력해주세요." />
     <input id="comment" name="comment" placeholder="줄거리를 입력해주세요" />
     <button onclick="createData()">등록</button>
@@ -21,6 +22,7 @@
       <thead>
         <tr>
           <th>프로필이미지</th>
+          <th>배너이미지</th>
           <th>제목</th>
           <th>줄거리</th>
           <th>수정</th>
@@ -32,6 +34,9 @@
           <tr id="tr_<%= data[i].id %>">
             <td>
               <img src="<%= data[i].mainurl %>" width="50" height="50" />
+            </td>
+            <td>
+              <img src="<%= data[i].bannerurl %>" width="50" height="50" />
             </td>
             <td>
               <%= data[i].name %>
@@ -52,11 +57,13 @@
     const title = document.getElementById("title").value;
     const comment = document.getElementById("comment").value;
     const image = document.getElementById("image").files[0];
+    const image2 = document.getElementById("bannerurl").files[0];
 
     const formData = new FormData();
     formData.append("name", title);
     formData.append("summary", comment);
     formData.append("image", image);
+    formData.append("bannerurl", image2);
     axios({
       headers: { "Content-Type": "multipart/form-data" },
       method: "post",

@@ -19,9 +19,14 @@ const moveAddminPage = async (req, res) => {
 // 등록
 const createTest = async (req, res) => {
   const { name, summary } = req.body;
-  const mainurl = req.file ? `/uploads/${req.file.filename}` : null;
+  const mainurl = req.files.image
+    ? `/uploads/${req.files.image[0].filename}`
+    : null;
+  const bannerurl = req.files.bannerurl
+    ? `/uploads/${req.files.bannerurl[0].filename}`
+    : null;
 
-  await registrationModel.postData({ name, summary, mainurl });
+  await registrationModel.postData({ name, summary, mainurl, bannerurl });
   res.send("200");
 };
 
@@ -49,5 +54,5 @@ module.exports = {
   deleteData,
   moveWrite,
   dataUpdate,
-  upload: upload.single("image"),
+  upload: upload.fields([{ name: "image" }, { name: "bannerurl" }]),
 };

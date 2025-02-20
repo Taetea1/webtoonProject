@@ -26,8 +26,13 @@ const getOne = async (userId) => {
 const postData = async (data) => {
   try {
     const query =
-      "INSERT INTO category (name, summary, mainurl) VALUES (?, ?, ?)";
-    await pool.query(query, [data.name, data.summary, data.mainurl]);
+      "INSERT INTO category (name, summary, mainurl, bannerurl) VALUES (?, ?, ?, ?)";
+    await pool.query(query, [
+      data.name,
+      data.summary,
+      data.mainurl,
+      data.bannerurl,
+    ]);
     return "데이터가 성공적으로 등록되었습니다.";
   } catch (e) {
     console.log("error", e);
