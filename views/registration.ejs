@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <form enctype="multipart/form-data">
+    <input type="file" id="image" name="image" />
+    <input id="title" name="title" placeholder="웹툰 제목을 입력해주세요." />
+    <input id="comment" name="comment" placeholder="줄거리를 입력해주세요" />
+    <button onclick="createData()">등록</button>
+  </form>
+  <br>
+  <div class="tablestyle">
+    <table class="tablebox">
+      <thead>
+        <tr>
+          <th>프로필이미지</th>
+          <th>제목</th>
+          <th>줄거리</th>
+          <th>수정</th>
+          <th>삭제</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i=0;i < data.length;i++){ %>
+          <tr id="tr_<%= data[i].id %>">
+            <td>
+              <img src="<%= data[i].mainurl %>" width="50" height="50" />
+            </td>
+            <td>
+              <%= data[i].name %>
+            </td>
+            <td>
+              <%= data[i].summary %>
+            </td>
+            <td><button type="button" onclick="updatePage(`<%= data[i].id %>`)">수정</button></td>
+            <td><button type="button" onclick="deletewebtoons(`<%= data[i].id %>`)">삭제</button></td>
+          </tr>
+          <%}%>
+      </tbody>
+    </table>
+  </div>
+</body>
+<script>
+  const createData = () => {
+    const title = document.getElementById("title").value;
+    const comment = document.getElementById("comment").value;
+    const image = document.getElementById("image").files[0];
+
+    const formData = new FormData();
+    formData.append("name", title);
+    formData.append("summary", comment);
+    formData.append("image", image);
+    axios({
+      headers: { "Content-Type": "multipart/form-data" },
+      method: "post",
+      url: '/webtoons/post/test',
+      data: formData
+    }).then((res) => {
+      alert("등록 성공");
+      window.location.reload();
+    }).catch((e) => {
+      console.log(e);
+    });
+  };
+
+  const deletewebtoons = (id) => {
+    axios({
+      method: 'delete',
+      url: `/webtoons/delete/${id}`
+    }).then((res) => {
+      alert("삭제 성공");
+      window.location.reload();
+    }).catch((e) => {
+      console.log(e);
+    });
+  };
+
+  const updatePage = (id) => {
+    window.location.href = `http://localhost:3000/webtoons/write/${id}`
+  }
+</script>
+
+</html>
