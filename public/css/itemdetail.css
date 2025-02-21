@@ -1,0 +1,95 @@
+@font-face {
+  font-family: "양진체";
+  src: url("https://fastly.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "S-CoreDream-3Light";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.menuwrap {
+  display: flex;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.itemimgbox {
+  width: 60%;
+}
+
+.itemimg {
+  width: 100%;
+}
+
+.infobox {
+  width: 40%;
+  padding-left: 20px;
+  .titletext {
+    margin-bottom: 20px;
+    font-family: "양진체";
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .nametext {
+    margin-bottom: 10px;
+    font-family: "S-CoreDream-3Light";
+    font-size: 30px;
+    font-weight: 400;
+  }
+  .detailtext {
+    margin-bottom: 14px;
+    font-family: "S-CoreDream-3Light";
+    font-size: 15px;
+    font-weight: 200;
+    color: #6b6b6b;
+  }
+  .pricetext {
+    margin-bottom: 20px;
+    font-family: "S-CoreDream-3Light";
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .buttonbox {
+    margin: 20px 0;
+  }
+}
+
+.textsize {
+  font-size: 15px;
+}
+
+.flexbox {
+  display: flex;
+  margin-bottom: 14px;
+}
+
+.flexbox2 {
+  display: flex;
+  padding-left: 27px;
+}
+
+.stick {
+  margin: 0 5px;
+}
+
+.boxtext {
+  color: #6b6b6b;
+}
+
+.flexbox3 {
+  display: flex;
+}
+
+.deliveryday {
+  padding-left: 16px;
+}
+.atag {
+  text-decoration: none;
+  color: black;
+}

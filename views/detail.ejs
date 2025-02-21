@@ -38,6 +38,33 @@
             </div>
 
           </div>
+          <div class="menuwrap">
+            <div class="producttext">
+              <div class="productsmall">당신의 취향을 저격할</div>
+              <div class="productbig">PRODUCTS</div>
+            </div>
+            <div class="menu">
+              <% itemdata.forEach((x)=>{ %>
+                <div id="<%= x.id %>" class="item-wrap">
+                  <a href="/webtoons/move/itemdetail/<%= x.id %>">
+                    <div class=" img-box"><img class="item" src="<%= x.url %>" alt="상품이미지" /></div>
+
+                    <div>
+                      <div class="nametext">
+                        <%= x.name %>
+                      </div>
+                      <div class="detailtext">
+                        <%= x.detail %>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="pricetext">
+                    <%= x.price.toLocaleString() %>원
+                  </div>
+                </div>
+                <% }) %>
+            </div>
+          </div>
 
           <!-- <div class="summary">
             <%= data[0].summary %>

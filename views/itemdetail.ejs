@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="/public/css/global.css" />
+  <link rel="stylesheet" href="/public/css/itemdetail.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <%- include("header") -%>
+    <div class="mainwrap">
+      <main>
+        <div class="menuwrap">
+          <div class="itemimgbox"><img class="itemimg" src="<%= itemdata[0].url %>" alt="상품이미지" /></div>
+          <div class="infobox">
+            <a href="/webtoons/move/detail/<%= itemdata[0].cateid %>" class="atag">
+              <div class="titletext">
+                <%= data[0].name %>
+              </div>
+            </a>
+            <div class="nametext">
+              <%= itemdata[0].name %>
+            </div>
+            <div class="detailtext">
+              <%= itemdata[0].detail %>
+            </div>
+            <div class="pricetext">
+              <%= itemdata[0].price.toLocaleString() %>원
+            </div>
+            <div>수량</div>
+            <hr>
+            <div>총 상품 금액</div>
+            <div class="buttonbox">
+              <button>장바구니</button>
+              <button>바로 구매하기</button>
+            </div>
+            <div class="textsize">
+              <div class="flexbox">
+                <div class="boxtext">배송 안내</div>
+                <div class="flexbox2">
+                  <div>기본 배송비 3,000원</div>
+                  <div class="stick">|</div>
+                  <div>일반 택배(CJ대한통운)</div>
+                </div>
+              </div>
+              <div class="flexbox3">
+                <div class="boxtext">배송출발일</div>
+                <div class="deliveryday">
+                  <% const currentDate=new Date(); %>
+                    지금 주문하면 <%= currentDate.getMonth()+1 %>/<%= currentDate.getDate()+4 %> 에 출발해요!
+                </div>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div class="flexbox"></div>
+
+      <!-- 푸터 -->
+      <%- include("footer") -%>
+</body>
+<script src="/public/js/itemdetail.js"></script>
+
+</html>

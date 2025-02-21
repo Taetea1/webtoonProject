@@ -32,7 +32,15 @@ const moveitemAddminPage = async (req, res) => {
 // 상세페이지로 이동
 const moveDetail = async (req, res) => {
   const data = await registrationModel.getOne(req.params.id);
-  res.render("detail", { data });
+  const itemdata = await registrationModel.getcateitem(req.params.id);
+  res.render("detail", { data, itemdata });
+};
+
+// 아이템 상세페이지로 이동
+const moveitemDetail = async (req, res) => {
+  const itemdata = await registrationModel.getitemOne(req.params.id);
+  const data = await registrationModel.getOne(itemdata[0].cateid);
+  res.render("itemdetail", { data, itemdata });
 };
 
 // db에 저장
@@ -166,6 +174,7 @@ module.exports = {
   dataUpdate,
   moveitemAddminPage,
   createitem,
+  moveitemDetail,
   moveitemWrite,
   itemdataUpdate,
   deleteitemData,

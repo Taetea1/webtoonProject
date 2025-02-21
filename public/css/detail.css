@@ -5,6 +5,13 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "S-CoreDream-3Light";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
 .title {
   font-family: "양진체";
@@ -26,7 +33,7 @@
 .positionbox {
   position: relative;
 }
-.headerbox {
+.headerwrap {
   background-color: transparent;
   z-index: 99;
 }
@@ -75,3 +82,79 @@
   padding: 30px 0;
   text-align: center;
 } */
+.menu {
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 1320px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.menuwrap {
+  margin-top: 200px;
+}
+.item {
+  width: 100%;
+  border-radius: 12%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background-color: #eee;
+}
+
+.producttext {
+  max-width: 1320px;
+  margin: 0px auto;
+  padding: 15px 20px;
+  .productsmall {
+    font-family: "양진체";
+    font-size: 15px;
+    font-weight: 200;
+    margin-bottom: 5px;
+    color: #6b6b6b;
+  }
+  .productbig {
+    font-family: "양진체";
+    font-size: 28px;
+    font-weight: 700;
+  }
+}
+
+.nametext {
+  margin-top: 10px;
+  font-family: "S-CoreDream-3Light";
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.detailtext {
+  font-family: "S-CoreDream-3Light";
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.pricetext {
+  margin-top: 10px;
+  font-family: "S-CoreDream-3Light";
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.item-wrap {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .menu {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .menu {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -35,6 +35,13 @@ const getitemOne = async (userId) => {
   return rows;
 };
 
+// 카테고리id에 해당하는 아이템들만 가져오기
+const getcateitem = async (userId) => {
+  const query = `SELECT * FROM webtoongoods WHERE cateid = ?`;
+  const [rows] = await pool.query(query, [Number(userId)]);
+  return rows;
+};
+
 // 등록하기
 const postData = async (data) => {
   try {
@@ -137,4 +144,5 @@ module.exports = {
   postitemData,
   updateitemRow,
   deleteitemRow,
+  getcateitem,
 };
