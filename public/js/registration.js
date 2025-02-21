@@ -30,6 +30,7 @@ const binImg = (num) => {
 const createData = (event) => {
   event.preventDefault();
   const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
   const comment = document.getElementById("comment").value;
   const image = document.getElementById("image").files[0];
   const image2 = document.getElementById("image2").files[0];
@@ -37,6 +38,7 @@ const createData = (event) => {
   // 이미지는 그냥 던지면 서버가 받지를 못해서 formdata에 직접 담아서 줘야함
   const formData = new FormData();
   formData.append("name", title);
+  formData.append("author", author);
   formData.append("summary", comment);
   formData.append("image", image);
   formData.append("image2", image2);

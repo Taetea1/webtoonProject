@@ -31,6 +31,7 @@
       <div class="filenamee2">선택된 파일 없음</div>
     </div>
     <input id="title" name="title" placeholder="웹툰 제목을 입력해주세요." />
+    <input id="author" name="author" placeholder="작가 이름을 입력해주세요." />
     <input id="comment" name="comment" placeholder="줄거리를 입력해주세요" />
     <button onclick="createData(event)">등록</button>
   </form>
@@ -42,6 +43,7 @@
           <th>프로필이미지</th>
           <th>배너이미지</th>
           <th>제목</th>
+          <th>작가</th>
           <th>줄거리</th>
           <th>수정</th>
           <th>삭제</th>
@@ -58,6 +60,9 @@
             </td>
             <td>
               <%= data[i].name %>
+            </td>
+            <td>
+              <%= data[i].author %>
             </td>
             <td>
               <%= data[i].summary %>

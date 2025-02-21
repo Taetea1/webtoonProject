@@ -15,18 +15,23 @@
 
     <div class="mainwrap">
       <main class="menu">
-        <div id="kk" class="box">
-          <div class="imgwrap">
-            <div class="imgbox"><img class="imgs" src="sds" alt="상품이미지" /></div>
-          </div>
-          <div class="textbox">
-            <div class="textflex">
-              <div class="testname testname${x.id}">sc</div>
-              <div class="testprice testprice${x.id}">scsc</div>
+        <% data.forEach((x)=>{ %>
+          <div id="<%= x.id %>" class="box">
+            <div class="imgwrap">
+              <div class="imgbox"><img class="imgs" src="<%= x.mainurl %>" alt="프로필이미지" /></div>
             </div>
-            <div class="happy happy${x.id}"><img class="happyimg happyimg${x.id}" src="" alt="" /></div>
+            <div class="textbox">
+              <div class="textflex">
+                <div class="testname testname${x.id}">
+                  <%= x.name %>
+                </div>
+                <div class="testprice testprice${x.id}">웹툰/만화 작가</div>
+              </div>
+              <div class="happy happy${x.id}"><img class="happyimg happyimg${x.id}" src="" alt="" /></div>
+            </div>
           </div>
-        </div>
+          <% }) %>
+
       </main>
       <div class="flexbox"></div>
 

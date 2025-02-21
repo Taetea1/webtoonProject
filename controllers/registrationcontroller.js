@@ -11,19 +11,21 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+// 모든 데이터 가져오기
 const getAllWebtoon = async (req, res) => {
   const data = await registrationModel.getWebtoons();
   res.render("main", { data });
 };
 
+// 등록페이지로 이동
 const moveAddminPage = async (req, res) => {
   const data = await registrationModel.getWebtoons();
   res.render("registration", { data });
 };
 
-// 등록
+// db에 저장
 const createTest = async (req, res) => {
-  const { name, summary } = req.body;
+  const { name, author, summary } = req.body;
   const mainurl = req.files.image
     ? `/uploads/${req.files.image[0].filename}`
     : null;
@@ -31,7 +33,13 @@ const createTest = async (req, res) => {
     ? `/uploads/${req.files.image2[0].filename}`
     : null;
 
-  await registrationModel.postData({ name, summary, mainurl, bannerurl });
+  await registrationModel.postData({
+    name,
+    author,
+    summary,
+    mainurl,
+    bannerurl,
+  });
   res.send("200");
 };
 
@@ -51,7 +59,7 @@ const moveWrite = async (req, res) => {
 const dataUpdate = async (req, res) => {
   try {
     const id = req.params.id;
-    const { name, summary } = req.body;
+    const { name, author, summary } = req.body;
 
     // 현재 저장된 데이터 가져오기
     const existingData = (await registrationModel.getOne(id)) || {};
@@ -69,6 +77,7 @@ const dataUpdate = async (req, res) => {
       summary,
       mainurl,
       bannerurl,
+      author,
     });
     res.send("200");
   } catch (error) {

@@ -26,12 +26,13 @@ const getOne = async (userId) => {
 const postData = async (data) => {
   try {
     const query =
-      "INSERT INTO category (name, summary, mainurl, bannerurl) VALUES (?, ?, ?, ?)";
+      "INSERT INTO category (name, summary, mainurl, bannerurl, author) VALUES (?, ?, ?, ?, ?)";
     await pool.query(query, [
       data.name,
       data.summary,
       data.mainurl,
       data.bannerurl,
+      data.author,
     ]);
     return "데이터가 성공적으로 등록되었습니다.";
   } catch (e) {
@@ -52,13 +53,14 @@ const deleteRow = async (id) => {
 
 // 해당 아이디를 가진 데이터 수정
 const updateRow = async (data) => {
-  const query = `UPDATE category SET name = ?, summary= ?, mainurl= ?, bannerurl= ? where id= ?`;
+  const query = `UPDATE category SET name = ?, summary= ?, mainurl= ?, bannerurl= ?, author= ? where id= ?`;
   try {
     await pool.query(query, [
       data.name,
       data.summary,
       data.mainurl,
       data.bannerurl,
+      data.author,
       Number(data.id),
     ]);
   } catch (e) {
