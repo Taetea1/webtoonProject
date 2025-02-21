@@ -17,8 +17,8 @@ const getWebtoons = async () => {
 
 // 해당하는 데이터 하나만 가져오기
 const getOne = async (userId) => {
-  const query = `SELECT * FROM category WHERE id = ${userId}`;
-  const [rows] = await pool.query(query);
+  const query = `SELECT * FROM category WHERE id = ?`;
+  const [rows] = await pool.query(query, [Number(userId)]);
   return rows;
 };
 
@@ -52,9 +52,15 @@ const deleteRow = async (id) => {
 
 // 해당 아이디를 가진 데이터 수정
 const updateRow = async (data) => {
-  const query = `UPDATE category SET name = ?, summary= ? where id= ?`;
+  const query = `UPDATE category SET name = ?, summary= ?, mainurl= ?, bannerurl= ? where id= ?`;
   try {
-    await pool.query(query, [data.name, data.comment, Number(data.id)]);
+    await pool.query(query, [
+      data.name,
+      data.summary,
+      data.mainurl,
+      data.bannerurl,
+      Number(data.id),
+    ]);
   } catch (e) {
     console.log(e);
   }

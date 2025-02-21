@@ -22,8 +22,8 @@ const createTest = async (req, res) => {
   const mainurl = req.files.image
     ? `/uploads/${req.files.image[0].filename}`
     : null;
-  const bannerurl = req.files.bannerurl
-    ? `/uploads/${req.files.bannerurl[0].filename}`
+  const bannerurl = req.files.image2
+    ? `/uploads/${req.files.image2[0].filename}`
     : null;
 
   await registrationModel.postData({ name, summary, mainurl, bannerurl });
@@ -44,8 +44,32 @@ const moveWrite = async (req, res) => {
 
 // 데이터 업데이트
 const dataUpdate = async (req, res) => {
-  await registrationModel.updateRow(req.body);
-  res.send("200");
+  try {
+    const id = req.params.id;
+    const { name, summary } = req.body;
+
+    // 현재 저장된 데이터 가져오기
+    const existingData = (await registrationModel.getOne(id)) || {};
+
+    const mainurl = req.files?.image
+      ? `/uploads/${req.files.image[0].filename}`
+      : existingData[0].mainurl;
+    const bannerurl = req.files?.image2
+      ? `/uploads/${req.files.image2[0].filename}`
+      : existingData[0].bannerurl;
+
+    await registrationModel.updateRow({
+      id,
+      name,
+      summary,
+      mainurl,
+      bannerurl,
+    });
+    res.send("200");
+  } catch (error) {
+    console.error("업데이트 실패:", error);
+    res.status(500).send("업데이트 실패");
+  }
 };
 
 module.exports = {
@@ -54,5 +78,5 @@ module.exports = {
   deleteData,
   moveWrite,
   dataUpdate,
-  upload: upload.fields([{ name: "image" }, { name: "bannerurl" }]),
+  upload: upload.fields([{ name: "image" }, { name: "image2" }]),
 };

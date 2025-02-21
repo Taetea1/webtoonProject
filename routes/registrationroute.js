@@ -11,7 +11,11 @@ router.post(
   registrationControl.createTest
 );
 
-router.put("/update", registrationControl.dataUpdate);
+router.put(
+  "/update/:id",
+  registrationControl.upload,
+  registrationControl.dataUpdate
+);
 
 router.delete("/delete/:id", registrationControl.deleteData);
 
