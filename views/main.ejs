@@ -18,21 +18,24 @@
         <% data.forEach((x)=>{ %>
           <a href="/webtoons/move/detail/<%= x.id %>" class="atag">
             <div id="<%= x.id %>" class="box">
-              <div class="contentbox">
+              <div class="backbox">
+                <img class="backimg" src="<%= x.mainurl %>" alt="배경이미지" />
 
-                <div class=" imgbox"><img class="imgs" src="<%= x.mainurl %>" alt="프로필이미지" /></div>
-
-                <div class="textbox">
-                  <div class="textflex">
-                    <div class="textalign title">
-                      <%= x.name %>
-                    </div>
-                    <div class="textalign author">
-                      <%= x.author %>
+                <div class="contentbox">
+                  <div class=" imgbox"><img class="imgs" src="<%= x.mainurl %>" alt="프로필이미지" /></div>
+                  <div class="textbox">
+                    <div class="textflex">
+                      <div class="textalign title">
+                        <%= x.name %>
+                      </div>
+                      <div class="textalign author">
+                        <%= x.author %>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+
             </div>
           </a>
 

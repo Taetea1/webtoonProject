@@ -1,3 +1,7 @@
+.imgflex {
+  display: flex;
+}
+
 .selectimgbox {
   width: 200px;
   margin-right: 10px;

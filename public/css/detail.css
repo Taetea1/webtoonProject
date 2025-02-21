@@ -38,17 +38,26 @@
 .bannerimg {
   width: 100%;
   height: 450px;
+
+  filter: brightness(85%);
+  object-fit: cover;
+}
+
+.profilebox-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0px auto;
+  padding: 0px 30px;
 }
 
 .profilebox {
   position: absolute;
-  top: 400px;
-  left: 120px;
+  top: -50px;
   display: flex;
 }
 
 .imgs {
-  background-color: black;
   border-radius: 50%;
   width: 180px;
   aspect-ratio: 1 / 1;

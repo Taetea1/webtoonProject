@@ -31,6 +31,7 @@ body {
 }
 
 .headerbox {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,6 +41,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 99;
   a {
     text-decoration: none;
   }
@@ -51,7 +53,7 @@ body {
 
 .logotext {
   font-weight: bolder;
-  margin: 10px;
+  margin: 10px 40px;
   color: black;
 }
 
