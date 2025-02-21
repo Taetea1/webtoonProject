@@ -506,62 +506,6 @@
     <button onclick="updateForm(event, `<%= data[0].id %>`)">수정</button>
   </form>
 </body>
-<script>
-  const updateForm = (event, id) => {
-    event.preventDefault();
-    const form = document.forms['updateData'];
-
-    const title = form["name"].value;
-    const comment = form["comment"].value;
-    const image = document.getElementById("image").files[0];
-    const image2 = document.getElementById("image2").files[0];
-
-    const formData = new FormData();
-    formData.append("name", title);
-    formData.append("summary", comment);
-    formData.append("image", image);
-    formData.append("image2", image2);
-
-    axios({
-      method: "put",
-      url: `/webtoons/update/${id}`,
-      data: formData,
-    }).then((res) => {
-      alert("수정 성공!!");
-      window.location.href = "/webtoons/registration";
-    })
-      .catch((e) => { })
-
-  }
-
-  const binImg = (num) => {
-    const form = document.forms["updateData"];
-    const filenamee = document.querySelector(`.filenamee${num}`);
-    const imgpreview = document.getElementById(`select-img${num}`);
-    const selectimg = document.getElementById(`image${num}`)
-    const fReader = new FileReader();
-
-    if (num === '2') {
-      filenamee.innerHTML = `<div>${form.image2.files[0].name}</div>`;
-
-      fReader.readAsDataURL(form.image2.files[0]);
-    } else if (num === '') {
-      filenamee.innerHTML = `<div>${form.image.files[0].name}</div>`;
-
-      fReader.readAsDataURL(form.image.files[0]);
-    }
-
-    fReader.onloadend = (event) => {
-      const path = event.target.result;
-      imgpreview.innerHTML = `<div class="preimgbox"><img class="preimg" src="${path}" alt="선택한 이미지" /></div>`;
-    };
-
-    // if (selectimg.value.length === 0) {
-    //   isbincheck[0] = 0;
-    // } else {
-    //   isbincheck[0] = 1;
-    // }
-  };
-</script>
+<script src="/public/js/webtoonwrite.js"></script>
 
 </html>
