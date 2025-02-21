@@ -4,8 +4,9 @@ const registrationControl = require("../controllers/registrationcontroller");
 
 router.get("/", registrationControl.getAllWebtoon);
 router.get("/registration", registrationControl.moveAddminPage);
-router.get("/itemaddmin", registrationControl.moveitemAddminPage);
+router.get("/itemadmin", registrationControl.moveitemAddminPage);
 router.get("/write/:id", registrationControl.moveWrite);
+router.get("/itemwrite/:id", registrationControl.moveitemWrite);
 router.get("/move/detail/:id", registrationControl.moveDetail);
 
 router.post(
@@ -23,6 +24,11 @@ router.put(
   "/update/:id",
   registrationControl.upload,
   registrationControl.dataUpdate
+);
+router.put(
+  "/itemupdate/:id",
+  registrationControl.upload,
+  registrationControl.itemdataUpdate
 );
 
 router.delete("/delete/:id", registrationControl.deleteData);

@@ -1,8 +1,8 @@
-const binImg = (num) => {
+const binImg = () => {
   const form = document.forms["mainForm"];
-  const filenamee = document.querySelector(`.filenamee${num}`);
-  const imgpreview = document.getElementById(`select-img${num}`);
-  const selectimg = document.getElementById(`image${num}`);
+  const filenamee = document.querySelector(`.filenamee`);
+  const imgpreview = document.getElementById(`select-img`);
+  const selectimg = document.getElementById(`image`);
   const fReader = new FileReader();
 
   filenamee.innerHTML = `<div>${form.image.files[0].name}</div>`;
@@ -64,5 +64,5 @@ const deletewebtoons = (id) => {
 };
 
 const updatePage = (id) => {
-  window.location.href = `http://localhost:3000/webtoons/write/${id}`;
+  window.location.href = `http://localhost:3000/webtoons/itemwrite/${id}`;
 };

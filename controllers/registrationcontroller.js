@@ -26,7 +26,7 @@ const moveAddminPage = async (req, res) => {
 const moveitemAddminPage = async (req, res) => {
   const itemdata = await registrationModel.getitems();
   const data = await registrationModel.getWebtoons();
-  res.render("itemaddmin", { itemdata, data });
+  res.render("itemadmin", { itemdata, data });
 };
 
 // 상세페이지로 이동
@@ -85,6 +85,13 @@ const moveWrite = async (req, res) => {
   res.render("webtoonwrite", { data });
 };
 
+// 아이템 수정 페이지로 이동
+const moveitemWrite = async (req, res) => {
+  const data = await registrationModel.getitemOne(req.params.id);
+  const webtoondata = await registrationModel.getWebtoons();
+  res.render("itemwrite", { data, webtoondata });
+};
+
 // 데이터 업데이트
 const dataUpdate = async (req, res) => {
   try {
@@ -115,6 +122,33 @@ const dataUpdate = async (req, res) => {
     res.status(500).send("업데이트 실패");
   }
 };
+// 아이템 데이터 업데이트
+const itemdataUpdate = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { name, price, detail, cateid } = req.body;
+
+    // 현재 저장된 데이터 가져오기
+    const existingData = (await registrationModel.getitemOne(id)) || {};
+
+    const url = req.files?.image
+      ? `/uploads/${req.files.image[0].filename}`
+      : existingData[0].url;
+
+    await registrationModel.updateitemRow({
+      name,
+      price,
+      detail,
+      url,
+      cateid,
+      id,
+    });
+    res.send("200");
+  } catch (error) {
+    console.error("업데이트 실패:", error);
+    res.status(500).send("업데이트 실패");
+  }
+};
 
 module.exports = {
   getAllWebtoon,
@@ -126,5 +160,7 @@ module.exports = {
   dataUpdate,
   moveitemAddminPage,
   createitem,
+  moveitemWrite,
+  itemdataUpdate,
   upload: upload.fields([{ name: "image" }, { name: "image2" }]),
 };
