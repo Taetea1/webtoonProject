@@ -22,6 +22,12 @@ const moveAddminPage = async (req, res) => {
   const data = await registrationModel.getWebtoons();
   res.render("registration", { data });
 };
+// 아이템등록페이지로 이동
+const moveitemAddminPage = async (req, res) => {
+  const itemdata = await registrationModel.getitems();
+  const data = await registrationModel.getWebtoons();
+  res.render("itemaddmin", { itemdata, data });
+};
 
 // 상세페이지로 이동
 const moveDetail = async (req, res) => {
@@ -45,6 +51,24 @@ const createTest = async (req, res) => {
     summary,
     mainurl,
     bannerurl,
+  });
+  res.send("200");
+};
+
+// item을 db에 저장
+const createitem = async (req, res) => {
+  const { name, price, detail, image, types } = req.body;
+  const url = req.files.image
+    ? `/uploads/${req.files.image[0].filename}`
+    : null;
+
+  await registrationModel.postitemData({
+    name,
+    price,
+    detail,
+    image,
+    types,
+    url,
   });
   res.send("200");
 };
@@ -100,5 +124,7 @@ module.exports = {
   deleteData,
   moveWrite,
   dataUpdate,
+  moveitemAddminPage,
+  createitem,
   upload: upload.fields([{ name: "image" }, { name: "image2" }]),
 };

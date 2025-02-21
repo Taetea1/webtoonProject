@@ -1,0 +1,115 @@
+.imgflex {
+  display: flex;
+}
+
+.selectimgbox {
+  width: 200px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.preimgbox {
+  width: 200px;
+  height: 200px;
+  border: 2px dashed #aaa;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preimgbox:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-color: #888;
+}
+
+.preimgbox:hover::after {
+  content: "수정";
+  color: #fff;
+  position: absolute;
+  font-size: 15px;
+  z-index: 20;
+}
+
+.preimg {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.btn-upload {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #aaa;
+  transition: background-color 0.3s;
+}
+
+.btn-upload:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-color: #888;
+}
+
+.btn-upload:hover::after {
+  content: "+";
+  color: #fff;
+  position: absolute;
+  font-size: 30px;
+}
+
+#image,
+#image2 {
+  display: none;
+}
+
+/* 버튼 */
+.btn {
+  display: block;
+  margin-left: auto;
+  padding: 10px 20px;
+  background-color: #deb887;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #bc8f8f;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: gray;
+}
+
+button[disabled]:hover {
+  background-color: gray;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+table td {
+  border: 1px solid #d2b48c;
+  padding: 10px;
+  text-align: center;
+}
+
+table thead {
+  background-color: #f5deb3;
+  text-align: center;
+}

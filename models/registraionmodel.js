@@ -15,6 +15,13 @@ const getWebtoons = async () => {
   return rows;
 };
 
+// 아이템 데이터 전부 가져오기
+const getitems = async () => {
+  const query = "SELECT * FROM webtoongoods";
+  const [rows] = await pool.query(query);
+  return rows;
+};
+
 // 해당하는 데이터 하나만 가져오기
 const getOne = async (userId) => {
   const query = `SELECT * FROM category WHERE id = ?`;
@@ -33,6 +40,25 @@ const postData = async (data) => {
       data.mainurl,
       data.bannerurl,
       data.author,
+    ]);
+    return "데이터가 성공적으로 등록되었습니다.";
+  } catch (e) {
+    console.log("error", e);
+    throw new Error("데이터 등록 실패");
+  }
+};
+
+// 아이템 등록
+const postitemData = async (data) => {
+  try {
+    const query =
+      "INSERT INTO webtoongoods (cateid, name, price, url, detail) VALUES (?, ?, ?, ?, ?)";
+    await pool.query(query, [
+      data.types,
+      data.name,
+      data.price,
+      data.url,
+      data.detail,
     ]);
     return "데이터가 성공적으로 등록되었습니다.";
   } catch (e) {
@@ -70,8 +96,10 @@ const updateRow = async (data) => {
 
 module.exports = {
   getWebtoons,
+  getitems,
   getOne,
   postData,
   deleteRow,
   updateRow,
+  postitemData,
 };
