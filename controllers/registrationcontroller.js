@@ -11,6 +11,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+const getAllWebtoon = async (req, res) => {
+  const data = await registrationModel.getWebtoons();
+  res.render("main", { data });
+};
+
 const moveAddminPage = async (req, res) => {
   const data = await registrationModel.getWebtoons();
   res.render("registration", { data });
@@ -73,6 +78,7 @@ const dataUpdate = async (req, res) => {
 };
 
 module.exports = {
+  getAllWebtoon,
   moveAddminPage,
   createTest,
   deleteData,

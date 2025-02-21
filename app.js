@@ -14,7 +14,7 @@ const adminRouter = require("./routes/registrationroute");
 app.use("/webtoons", adminRouter);
 
 app.get("/", (req, res) => {
-  res.render("main");
+  res.render("index");
 });
 
 app.listen(port, () => {
