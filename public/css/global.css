@@ -1,0 +1,42 @@
+.headerbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aqua;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.setbox {
+  display: flex;
+}
+
+.logotext {
+  font-weight: bolder;
+  margin: 10px;
+}
+
+.hearticon,
+.loginicon {
+  margin: 10px;
+}
+
+.flexbox {
+  flex: 1;
+}
+
+/* 푸터 */
+.footer {
+  background-color: blue;
+}
+/* 전체 상자(푸터 하단에 고정하기 위해) */
+.input-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 83.3vh;
+
+  margin-top: 150px;
+}

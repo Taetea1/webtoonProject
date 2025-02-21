@@ -34,6 +34,7 @@ const createData = (event) => {
   const image = document.getElementById("image").files[0];
   const image2 = document.getElementById("image2").files[0];
 
+  // 이미지는 그냥 던지면 서버가 받지를 못해서 formdata에 직접 담아서 줘야함
   const formData = new FormData();
   formData.append("name", title);
   formData.append("summary", comment);
