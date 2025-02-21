@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="/public/css/global.css" />
+  <link rel="stylesheet" href="/public/css/detail.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <%- include("header") -%>
+    <div class="mainbox">
+      <main>
+        <div>
+          <div class="positionbox">
+            <div class="bannerbox">
+              <img src="<%= data[0].bannerurl %>" alt="배너 이미지" class="bannerimg" />
+            </div>
+            <div class="profilebox">
+              <img class="imgs" src="<%= data[0].mainurl %>" alt="프로필이미지" />
+              <div class="textbox">
+                <div class="title">
+                  <%= data[0].name %>
+                </div>
+                <div class="author">
+                  <%= data[0].author %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="summary">
+            <%= data[0].summary %>
+          </div>
+      </main>
+
+      <div class="flexbox"></div>
+
+      <!-- 푸터 -->
+      <%- include("footer") -%>
+</body>
+<script src="/public/js/detail.js"></script>
+
+</html>

@@ -16,20 +16,26 @@
     <div class="mainwrap">
       <main class="menu">
         <% data.forEach((x)=>{ %>
-          <div id="<%= x.id %>" class="box">
-            <div class="imgwrap">
-              <div class="imgbox"><img class="imgs" src="<%= x.mainurl %>" alt="프로필이미지" /></div>
-            </div>
-            <div class="textbox">
-              <div class="textflex">
-                <div class="testname testname${x.id}">
-                  <%= x.name %>
+          <a href="/webtoons/move/detail/<%= x.id %>" class="atag">
+            <div id="<%= x.id %>" class="box">
+              <div class="contentbox">
+
+                <div class=" imgbox"><img class="imgs" src="<%= x.mainurl %>" alt="프로필이미지" /></div>
+
+                <div class="textbox">
+                  <div class="textflex">
+                    <div class="textalign title">
+                      <%= x.name %>
+                    </div>
+                    <div class="textalign author">
+                      <%= x.author %>
+                    </div>
+                  </div>
                 </div>
-                <div class="testprice testprice${x.id}">웹툰/만화 작가</div>
               </div>
-              <div class="happy happy${x.id}"><img class="happyimg happyimg${x.id}" src="" alt="" /></div>
             </div>
-          </div>
+          </a>
+
           <% }) %>
 
       </main>

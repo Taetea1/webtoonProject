@@ -23,6 +23,12 @@ const moveAddminPage = async (req, res) => {
   res.render("registration", { data });
 };
 
+// 상세페이지로 이동
+const moveDetail = async (req, res) => {
+  const data = await registrationModel.getOne(req.params.id);
+  res.render("detail", { data });
+};
+
 // db에 저장
 const createTest = async (req, res) => {
   const { name, author, summary } = req.body;
@@ -90,6 +96,7 @@ module.exports = {
   getAllWebtoon,
   moveAddminPage,
   createTest,
+  moveDetail,
   deleteData,
   moveWrite,
   dataUpdate,

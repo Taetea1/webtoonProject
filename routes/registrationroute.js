@@ -5,6 +5,7 @@ const registrationControl = require("../controllers/registrationcontroller");
 router.get("/", registrationControl.getAllWebtoon);
 router.get("/registration", registrationControl.moveAddminPage);
 router.get("/write/:id", registrationControl.moveWrite);
+router.get("/move/detail/:id", registrationControl.moveDetail);
 
 router.post(
   "/post/test",

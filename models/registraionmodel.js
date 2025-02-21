@@ -68,4 +68,10 @@ const updateRow = async (data) => {
   }
 };
 
-module.exports = { getWebtoons, getOne, postData, deleteRow, updateRow };
+module.exports = {
+  getWebtoons,
+  getOne,
+  postData,
+  deleteRow,
+  updateRow,
+};

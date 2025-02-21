@@ -1,8 +1,31 @@
+@font-face {
+  font-family: "양진체";
+  src: url("https://fastly.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+header {
+  font-family: "양진체";
+  font-size: 25px;
+  font-weight: 900;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 /* 전체 상자(푸터 하단에 고정하기 위해) */
 .mainwrap {
   display: flex;
   flex-direction: column;
-  height: 86vh;
+  height: 87.6vh;
 
   margin-top: 100px;
 }
@@ -11,12 +34,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: aqua;
+  background-color: white;
   height: 80px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  a {
+    text-decoration: none;
+  }
 }
 
 .setbox {
@@ -26,6 +52,7 @@
 .logotext {
   font-weight: bolder;
   margin: 10px;
+  color: black;
 }
 
 .hearticon,

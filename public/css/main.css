@@ -1,13 +1,72 @@
+@font-face {
+  font-family: "S-CoreDream-3Light";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.title {
+  font-family: "S-CoreDream-3Light";
+  font-size: 15px;
+  font-weight: 700;
+}
+.author {
+  font-family: "S-CoreDream-3Light";
+  font-size: 13px;
+  font-weight: 200;
+}
+
+/* 카테고리 내용 */
 .menu {
   margin: 0 auto;
   max-width: 1280px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
 
 .box {
-  width: 100px;
-  height: 100px;
+  background-color: #eee;
+  border-radius: 12%;
+  aspect-ratio: 1/1;
+}
+
+.contentbox {
+  padding: 24px;
+}
+
+.imgbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.imgs {
   background-color: black;
+  border-radius: 50%;
+  width: 42%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+.textalign {
+  text-align: center;
+}
+.atag {
+  text-decoration: none;
+  color: black;
+}
+
+@media screen and (max-width: 860px) {
+  .menu {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .menu {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
