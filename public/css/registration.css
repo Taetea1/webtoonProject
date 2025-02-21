@@ -1,5 +1,16 @@
-.imgflex {
-  display: flex;
+.mainwrap {
+  width: 100%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.mainbox {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .selectimgbox {
@@ -96,6 +107,15 @@ button[disabled]:hover {
   background-color: gray;
 }
 
+/* .tablestyle {
+  width: 100%;
+}
+
+.tablebox {
+  max-width: 1280px;
+  margin: 0 auto;
+} */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -112,4 +132,8 @@ table td {
 table thead {
   background-color: #f5deb3;
   text-align: center;
+}
+
+.inputs {
+  display: flex;
 }

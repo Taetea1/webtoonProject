@@ -14,71 +14,81 @@
   <!-- 헤더 -->
   <%- include("header") -%>
     <div class="mainwrap">
-      <form name="mainForm" enctype="multipart/form-data">
-        <div class="imgflex">
-          <div class="selectimgbox">
-            <!-- 이미지 -->
-            <label for="image" id="select-img">
-              <div class="btn-upload">프로필이미지 선택</div>
-            </label>
-            <input id="image" oninput="binImg('')" type="file" name="image" />
-            <div class="filenamee">선택된 파일 없음</div>
-          </div>
+      <div class="mainbox">
+        <form name="mainForm" enctype="multipart/form-data">
+          <div class="inputs">
+            <div>
+              <div class="selectimgbox">
+                <!-- 이미지 -->
+                <label for="image" id="select-img">
+                  <div class="btn-upload">프로필이미지 선택</div>
+                </label>
+                <input id="image" oninput="binImg('')" type="file" name="image" />
+                <div class="filenamee">선택된 파일 없음</div>
+              </div>
 
-          <div class="selectimgbox">
-            <!-- 이미지 -->
-            <label for="image2" id="select-img2">
-              <div class="btn-upload">배너이미지 선택</div>
-            </label>
-            <input id="image2" oninput="binImg('2')" type="file" name="image2" />
-            <div class="filenamee2">선택된 파일 없음</div>
+              <div class="selectimgbox">
+                <!-- 이미지 -->
+                <label for="image2" id="select-img2">
+                  <div class="btn-upload">배너이미지 선택</div>
+                </label>
+                <input id="image2" oninput="binImg('2')" type="file" name="image2" />
+                <div class="filenamee2">선택된 파일 없음</div>
+              </div>
+            </div>
+            <div>
+              <input id="title" name="title" placeholder="웹툰 제목을 입력해주세요." />
+              <input id="author" name="author" placeholder="작가 이름을 입력해주세요." />
+              <input id="comment" name="comment" placeholder="줄거리를 입력해주세요" />
+              <div>
+                <button onclick="createData(event)">등록</button>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <input id="title" name="title" placeholder="웹툰 제목을 입력해주세요." />
-        <input id="author" name="author" placeholder="작가 이름을 입력해주세요." />
-        <input id="comment" name="comment" placeholder="줄거리를 입력해주세요" />
-        <button onclick="createData(event)">등록</button>
-      </form>
-      <br>
-      <div class="tablestyle">
-        <table class="tablebox">
-          <thead>
-            <tr>
-              <th>프로필이미지</th>
-              <th>배너이미지</th>
-              <th>제목</th>
-              <th>작가</th>
-              <th>줄거리</th>
-              <th>수정</th>
-              <th>삭제</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for(let i=0;i < data.length;i++){ %>
-              <tr id="tr_<%= data[i].id %>">
-                <td>
-                  <img src="<%= data[i].mainurl %>" width="50" height="50" />
-                </td>
-                <td>
-                  <img src="<%= data[i].bannerurl %>" width="50" height="50" />
-                </td>
-                <td>
-                  <%= data[i].name %>
-                </td>
-                <td>
-                  <%= data[i].author %>
-                </td>
-                <td>
-                  <%= data[i].summary %>
-                </td>
-                <td><button type="button" onclick="updatePage(`<%= data[i].id %>`)">수정</button></td>
-                <td><button type="button" onclick="deletewebtoons(`<%= data[i].id %>`)">삭제</button></td>
+        </form>
+        <br>
+        <div class="tablestyle">
+          <table class="tablebox">
+            <thead>
+              <tr>
+                <th>프로필이미지</th>
+                <th>배너이미지</th>
+                <th>제목</th>
+                <th>작가</th>
+                <th>줄거리</th>
+                <th>수정</th>
+                <th>삭제</th>
               </tr>
-              <%}%>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <% for(let i=0;i < data.length;i++){ %>
+                <tr id="tr_<%= data[i].id %>">
+                  <td>
+                    <img src="<%= data[i].mainurl %>" width="50" height="50" />
+                  </td>
+                  <td>
+                    <img src="<%= data[i].bannerurl %>" width="50" height="50" />
+                  </td>
+                  <td>
+                    <%= data[i].name %>
+                  </td>
+                  <td>
+                    <%= data[i].author %>
+                  </td>
+                  <td>
+                    <%= data[i].summary %>
+                  </td>
+                  <td><button type="button" onclick="updatePage(`<%= data[i].id %>`)">수정</button></td>
+                  <td><button type="button" onclick="deletewebtoons(`<%= data[i].id %>`)">삭제</button></td>
+                </tr>
+                <%}%>
+            </tbody>
+          </table>
+        </div>
       </div>
+      <div class="flexbox"></div>
+      <!-- 푸터 -->
+      <%- include("footer") -%>
     </div>
 </body>
 
