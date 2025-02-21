@@ -79,6 +79,12 @@ const deleteData = async (req, res) => {
   res.send("200");
 };
 
+// 해당 아이디 아이템 삭제
+const deleteitemData = async (req, res) => {
+  await registrationModel.deleteitemRow(req.params.id);
+  res.send("200");
+};
+
 // 수정 페이지로 이동
 const moveWrite = async (req, res) => {
   const data = await registrationModel.getOne(req.params.id);
@@ -162,5 +168,6 @@ module.exports = {
   createitem,
   moveitemWrite,
   itemdataUpdate,
+  deleteitemData,
   upload: upload.fields([{ name: "image" }, { name: "image2" }]),
 };

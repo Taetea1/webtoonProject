@@ -52,7 +52,7 @@ const createData = (event) => {
 const deletewebtoons = (id) => {
   axios({
     method: "delete",
-    url: `/webtoons/delete/${id}`,
+    url: `/webtoons/itemdelete/${id}`,
   })
     .then((res) => {
       alert("삭제 성공");

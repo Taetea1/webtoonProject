@@ -32,5 +32,6 @@ router.put(
 );
 
 router.delete("/delete/:id", registrationControl.deleteData);
+router.delete("/itemdelete/:id", registrationControl.deleteitemData);
 
 module.exports = router;

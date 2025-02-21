@@ -83,6 +83,16 @@ const deleteRow = async (id) => {
   }
 };
 
+// 해당 아이디를 가진 모든 아이템 삭제
+const deleteitemRow = async (id) => {
+  const query = `DELETE FROM webtoongoods where id = ${Number(id)}`;
+  try {
+    await pool.query(query, [id]);
+  } catch (e) {
+    console.log("삭제 실패");
+  }
+};
+
 // 해당 아이디를 가진 데이터 수정
 const updateRow = async (data) => {
   const query = `UPDATE category SET name = ?, summary= ?, mainurl= ?, bannerurl= ?, author= ? where id= ?`;
@@ -126,4 +136,5 @@ module.exports = {
   updateRow,
   postitemData,
   updateitemRow,
+  deleteitemRow,
 };
