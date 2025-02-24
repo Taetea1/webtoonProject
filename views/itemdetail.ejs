@@ -31,7 +31,7 @@
               <%= itemdata[0].detail %>
             </div>
             <div class="pricetext">
-              <span class="pricebox">
+              <span>
                 <%= itemdata[0].price.toLocaleString() %>
               </span>원
             </div>
@@ -46,11 +46,19 @@
               </div>
             </div>
             <hr>
-            <div>총 상품 금액</div>
+            <div class="amountwrap">
+              <div>총 상품 금액</div>
+              <div>
+                <span class="pricebox">
+                  <%= itemdata[0].price.toLocaleString() %>
+                </span>원
+              </div>
+
+            </div>
             <div class="buttonbox">
 
               <button onclick="putcart(`<%= itemdata[0].id %>`)" class="cartbtn">장바구니</button>
-              <button class="buybtn">바로 구매하기</button>
+              <button class="buybtn" onclick="readyalert()">바로 구매하기</button>
             </div>
             <div class="textsize">
               <div class="flexbox">
@@ -68,7 +76,6 @@
                     지금 주문하면 <%= currentDate.getMonth()+1 %>/<%= currentDate.getDate()+4 %> 에 출발해요!
                 </div>
               </div>
-              <div></div>
             </div>
           </div>
         </div>
