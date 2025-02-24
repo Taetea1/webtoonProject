@@ -22,6 +22,13 @@ const getitems = async () => {
   return rows;
 };
 
+// 장바구니 아이템 전부 가져오기
+const getcart = async () => {
+  const query = "SELECT * FROM cart";
+  const [rows] = await pool.query(query);
+  return rows;
+};
+
 // 해당하는 데이터 하나만 가져오기
 const getOne = async (userId) => {
   const query = `SELECT * FROM category WHERE id = ?`;
@@ -72,6 +79,25 @@ const postitemData = async (data) => {
       data.price,
       data.url,
       data.detail,
+    ]);
+    return "데이터가 성공적으로 등록되었습니다.";
+  } catch (e) {
+    console.log("error", e);
+    throw new Error("데이터 등록 실패");
+  }
+};
+
+// 장바구니에 담기
+const putCartItem = async (data) => {
+  try {
+    const query =
+      "INSERT INTO cart (itemid, name, price, detail, url ) VALUES (?, ?, ?, ?, ?)";
+    await pool.query(query, [
+      data.itemid,
+      data.name,
+      data.price,
+      data.detail,
+      data.url,
     ]);
     return "데이터가 성공적으로 등록되었습니다.";
   } catch (e) {
@@ -134,6 +160,8 @@ const updateitemRow = async (data) => {
 };
 
 module.exports = {
+  putCartItem,
+  getcart,
   getWebtoons,
   getitems,
   getOne,

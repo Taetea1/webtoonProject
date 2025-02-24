@@ -80,36 +80,19 @@ const createData = (event) => {
   formData.append("image", image);
   formData.append("image2", image2);
 
-  let isduple;
-
   axios({
     headers: { "Content-Type": "multipart/form-data" },
-    method: "get",
-    url: "/webtoons/duple",
-    params: formData,
+    method: "post",
+    url: "/webtoons/post/test",
+    data: formData,
   })
     .then((res) => {
-      console.log(res);
-      isduple = res.query;
+      alert("등록 성공");
+      window.location.reload();
     })
     .catch((e) => {
       console.log(e);
     });
-  if (isduple === false) {
-    axios({
-      headers: { "Content-Type": "multipart/form-data" },
-      method: "post",
-      url: "/webtoons/post/test",
-      data: formData,
-    })
-      .then((res) => {
-        alert("등록 성공");
-        window.location.reload();
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
 };
 
 const deletewebtoons = (id) => {

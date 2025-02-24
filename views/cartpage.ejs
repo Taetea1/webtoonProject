@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="/public/css/global.css" />
+  <link rel="stylesheet" href="/public/css/cartpage.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <%- include("header") -%>
+    <div class="mainwrap">
+      <div class="carttext">
+        <h2>장바구니</h2>
+      </div>
+
+      <main>
+        <div class="menuwrap">
+          <% data.forEach((x)=>{%>
+            <div class="itemwrap">
+              <a href="/webtoons/move/itemdetail/<%= x.itemid %>" class="atag">
+                <div class="itemimgbox">
+                  <img class="itemimg" src="<%= x.url %>" alt="상품이미지" />
+                </div>
+              </a>
+
+              <div class="titletext">
+                <%= x.name %>
+              </div>
+              <div class="pricetext">
+                <%= x.price.toLocaleString() %>원
+              </div>
+              <div class="detailtext">
+                <%= x.detail %>
+              </div>
+
+            </div>
+            <% }); %>
+        </div>
+      </main>
+    </div>
+    <div class="flexbox"></div>
+
+    <!-- 푸터 -->
+    <%- include("footer") -%>
+</body>
+
+</html>

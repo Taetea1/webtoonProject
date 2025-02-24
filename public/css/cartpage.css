@@ -1,0 +1,28 @@
+.carttext {
+  max-width: 1320px;
+  padding: 0 20px;
+  margin: 10px auto;
+}
+
+.menuwrap {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.itemwrap {
+  display: flex;
+  background-color: antiquewhite;
+  margin-bottom: 10px;
+  div {
+    margin: auto auto;
+  }
+}
+
+.itemimgbox {
+  width: 100%;
+}
+
+.itemimg {
+  max-width: 200px;
+}

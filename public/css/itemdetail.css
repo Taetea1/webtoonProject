@@ -94,3 +94,25 @@
   text-decoration: none;
   color: black;
 }
+
+.buybtn {
+  padding: 10px 15px;
+  background-color: #eee;
+  border: none;
+  border-radius: 5%;
+  cursor: pointer;
+}
+.buybtn:hover {
+  background-color: #a6a6a6;
+}
+.cartbtn {
+  padding: 10px 15px;
+  background-color: rgb(111, 111, 242);
+  color: white;
+  border: none;
+  border-radius: 5%;
+  cursor: pointer;
+}
+.cartbtn:hover {
+  background-color: rgb(84, 84, 180);
+}

@@ -36,8 +36,8 @@
             <hr>
             <div>총 상품 금액</div>
             <div class="buttonbox">
-              <button>장바구니</button>
-              <button>바로 구매하기</button>
+              <button onclick="putcart(`<%= itemdata[0].id %>`)" class="cartbtn">장바구니</button>
+              <button class="buybtn">바로 구매하기</button>
             </div>
             <div class="textsize">
               <div class="flexbox">
@@ -66,5 +66,6 @@
       <!-- 푸터 -->
       <%- include("footer") -%>
 </body>
+<script src="/public/js/itemdetail.js"></script>
 
 </html>

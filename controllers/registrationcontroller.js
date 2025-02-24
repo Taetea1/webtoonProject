@@ -43,6 +43,12 @@ const moveitemDetail = async (req, res) => {
   res.render("itemdetail", { data, itemdata });
 };
 
+// 장바구니 페이지로 이동
+const movecartPage = async (req, res) => {
+  const data = await registrationModel.getcart();
+  res.render("cartpage", { data });
+};
+
 // db에 저장
 const createTest = async (req, res) => {
   const { name, author, summary } = req.body;
@@ -164,7 +170,29 @@ const itemdataUpdate = async (req, res) => {
   }
 };
 
+// 장바구니 담기
+const cartitem = async (req, res) => {
+  // 현재 아이템데이터 가져오기
+  const existingData = (await registrationModel.getitemOne(req.body.id)) || {};
+  const itemid = existingData[0].id;
+  const name = existingData[0].name;
+  const price = existingData[0].price;
+  const detail = existingData[0].detail;
+  const url = existingData[0].url;
+
+  await registrationModel.putCartItem({
+    itemid,
+    name,
+    price,
+    detail,
+    url,
+  });
+  res.send("200");
+};
+
 module.exports = {
+  movecartPage,
+  cartitem,
   getAllWebtoon,
   moveAddminPage,
   createTest,
