@@ -31,7 +31,7 @@ const getcartData = async (req, res) => {
 // 제목 중복확인
 const getdupletitle = async (req, res) => {
   const data = (await registrationModel.getdupletitles(req.query.title)) || {};
-  console.log(data.length);
+
   if (data.length > 0) {
     res.send("true"); //중복하는 값이 있음
   } else {

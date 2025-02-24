@@ -1,3 +1,20 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // 모든 버튼 가져오기
+  const buttons = document.querySelectorAll(".minus");
+
+  buttons.forEach((button) => {
+    const id = button.id;
+    const countElement = document.querySelector(`.amount${id}`);
+
+    if (countElement.innerText === "1") {
+      const minus = document.querySelector(`.minus${id}`);
+      minus.disabled = true;
+    } else {
+      minus.disabled = false;
+    }
+  });
+});
+
 const plus = (id) => {
   const prices = document.querySelector(`.pricebox${id}`);
   const amount = document.querySelector(`.amount${id}`);
@@ -17,7 +34,9 @@ const plus = (id) => {
     url: "/webtoons/cartput",
     data: { id, num, originprice },
   })
-    .then((res) => {})
+    .then((res) => {
+      window.location.reload();
+    })
     .catch((e) => {
       console.log(e);
     });
@@ -38,6 +57,7 @@ const minus = (id) => {
     ).toLocaleString();
   }
   if (amount.innerHTML <= 1) {
+    console.log(amount.innerHTML);
     document.querySelector(`.minus${id}`).disabled = true;
   }
 
@@ -46,7 +66,9 @@ const minus = (id) => {
     url: "/webtoons/cartput",
     data: { id, num, originprice },
   })
-    .then((res) => {})
+    .then((res) => {
+      window.location.reload();
+    })
     .catch((e) => {
       console.log(e);
     });
