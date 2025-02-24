@@ -14,15 +14,28 @@
   <!-- 헤더 -->
   <%- include("header") -%>
     <div class="mainwrap">
-      <div class="carttext">
-        <h2>장바구니</h2>
+      <div class="carttitlebox">
+        <div class="carttitle">
+          <h2>장바구니</h2>
+        </div>
+
       </div>
 
       <main>
         <% if(data.length===0){ %>
-          <div>장바구니가 비어있습니다.</div>
+          <div class="cartwrap">
+            <div class="cartbox">
+              <div><img src="/public/image/cartbin.png" alt="빈장바구니" /></div>
+              <div class="carttext">장바구니가 비어있어요!</div>
+              <div class="carttext2">
+                <div>다양한 상품을 구경하고</div>
+                <div>나에게 맞는 상품을 담아보세요!</div>
+              </div>
+            </div>
+          </div>
           <% } else{ %>
             <div class="menuwrap">
+              <hr />
               <% data.forEach((x)=>{%>
                 <div class="itemwrap">
                   <a href="/webtoons/move/itemdetail/<%= x.itemid %>" class="atag">
@@ -30,17 +43,21 @@
                       <img class="itemimg" src="<%= x.url %>" alt="상품이미지" />
                     </div>
                   </a>
+                  <div class="textbox">
+                    <div class="deletebox">
+                      <img class="deleteimg" src="/public/image/close.png" onclick="deleteone(`<%= x.id %>`)" />
+                    </div>
+                    <div class="titletext">
+                      <%= x.name %>
+                    </div>
+                    <div class="detailtext">
+                      <%= x.detail %>
+                    </div>
+                    <div class="pricetext">
+                      <%= x.price.toLocaleString() %>원
+                    </div>
 
-                  <div class="titletext">
-                    <%= x.name %>
                   </div>
-                  <div class="pricetext">
-                    <%= x.price.toLocaleString() %>원
-                  </div>
-                  <div class="detailtext">
-                    <%= x.detail %>
-                  </div>
-
                 </div>
                 <% }); %>
             </div>

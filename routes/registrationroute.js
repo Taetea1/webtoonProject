@@ -41,5 +41,6 @@ router.put(
 router.delete("/delete/:id", registrationControl.deleteData);
 router.delete("/itemdelete/:id", registrationControl.deleteitemData);
 router.delete("/allcartitem", registrationControl.deleteallcartData);
+router.delete("/onecartitem/:id", registrationControl.deleteonecartData);
 
 module.exports = router;

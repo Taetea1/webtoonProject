@@ -11,3 +11,16 @@ const allDelete = () => {
       console.log(e);
     });
 };
+
+const deleteone = (id) => {
+  axios({
+    method: "delete",
+    url: `/webtoons/onecartitem/${id}`,
+  })
+    .then((res) => {
+      window.location.reload();
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};

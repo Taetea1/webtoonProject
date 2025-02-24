@@ -125,6 +125,16 @@ const deleteitemRow = async (id) => {
   }
 };
 
+// 해당 아이디를 가진 장바구니 아이템 삭제
+const deleteonecartRow = async (id) => {
+  const query = `DELETE FROM cart where id = ?`;
+  try {
+    await pool.query(query, [id]);
+  } catch (e) {
+    console.log("삭제 실패");
+  }
+};
+
 // 장바구니 모든 아이템 삭제
 const deleteallcartRow = async () => {
   const query = "DELETE FROM cart";
@@ -168,6 +178,7 @@ const updateitemRow = async (data) => {
 };
 
 module.exports = {
+  deleteonecartRow,
   putCartItem,
   deleteallcartRow,
   getcart,

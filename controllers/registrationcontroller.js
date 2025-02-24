@@ -98,6 +98,11 @@ const deleteitemData = async (req, res) => {
   await registrationModel.deleteitemRow(req.params.id);
   res.send("200");
 };
+// 해당 아이디 장바구니아이템 삭제
+const deleteonecartData = async (req, res) => {
+  await registrationModel.deleteonecartRow(req.params.id);
+  res.send("200");
+};
 
 // 모든 장바구니 아이템 삭제
 const deleteallcartData = async (req, res) => {
@@ -196,6 +201,7 @@ const cartitem = async (req, res) => {
 };
 
 module.exports = {
+  deleteonecartData,
   movecartPage,
   deleteallcartData,
   cartitem,
