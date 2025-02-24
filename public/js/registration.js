@@ -1,8 +1,9 @@
+let isbincheck = [0, 0, 0, 0, 0];
+
 const binImg = (num) => {
   const form = document.forms["mainForm"];
   const filenamee = document.querySelector(`.filenamee${num}`);
   const imgpreview = document.getElementById(`select-img${num}`);
-  const selectimg = document.getElementById(`image${num}`);
   const fReader = new FileReader();
 
   if (num === "2") {
@@ -10,25 +11,61 @@ const binImg = (num) => {
 
     fReader.readAsDataURL(form.image2.files[0]);
   } else if (num === "") {
-    filenamee.innerHTML = `<div>${form.image.files[0].name}</div>`;
-
+    filenamee.innerHTML = `${form.image.files[0].name}`;
     fReader.readAsDataURL(form.image.files[0]);
   }
 
   fReader.onloadend = (event) => {
     const path = event.target.result;
-    imgpreview.innerHTML = `<div class="preimgbox"><img class="preimg" src="${path}" alt="선택한 이미지" /></div>`;
+    imgpreview.innerHTML = `<div class="preimgbox"><img class="preimg preimg${num}" src="${path}" alt="선택한 이미지" /></div>`;
   };
 
-  // if (selectimg.value.length === 0) {
-  //   isbincheck[0] = 0;
-  // } else {
-  //   isbincheck[0] = 1;
-  // }
+  if (num === "2") {
+    isbincheck[0] = 1;
+  } else if (num === "") {
+    isbincheck[1] = 1;
+  }
+  check();
+};
+
+const checkBin = (id) => {
+  const input = document.getElementById(id).value;
+  if (id === "title") {
+    if (input.length === 0) {
+      isbincheck[2] = 0;
+    } else {
+      isbincheck[2] = 1;
+    }
+  } else if (id === "author") {
+    if (input.length === 0) {
+      isbincheck[3] = 0;
+    } else {
+      isbincheck[3] = 1;
+    }
+  } else if (id === "comment") {
+    if (input.length === 0) {
+      isbincheck[4] = 0;
+    } else {
+      isbincheck[4] = 1;
+    }
+  }
+  check();
+};
+
+const check = () => {
+  console.log(isbincheck);
+  const btn = document.querySelector(".btn");
+  const bincheck = isbincheck.filter((x) => x === 1);
+  if (bincheck.length === 5) {
+    btn.disabled = false;
+  } else {
+    btn.disabled = true;
+  }
 };
 
 const createData = (event) => {
   event.preventDefault();
+
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
   const comment = document.getElementById("comment").value;
@@ -42,19 +79,37 @@ const createData = (event) => {
   formData.append("summary", comment);
   formData.append("image", image);
   formData.append("image2", image2);
+
+  let isduple;
+
   axios({
     headers: { "Content-Type": "multipart/form-data" },
-    method: "post",
-    url: "/webtoons/post/test",
-    data: formData,
+    method: "get",
+    url: "/webtoons/duple",
+    params: formData,
   })
     .then((res) => {
-      alert("등록 성공");
-      window.location.reload();
+      console.log(res);
+      isduple = res.query;
     })
     .catch((e) => {
       console.log(e);
     });
+  if (isduple === false) {
+    axios({
+      headers: { "Content-Type": "multipart/form-data" },
+      method: "post",
+      url: "/webtoons/post/test",
+      data: formData,
+    })
+      .then((res) => {
+        alert("등록 성공");
+        window.location.reload();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
 };
 
 const deletewebtoons = (id) => {

@@ -36,12 +36,12 @@
                 <div class="filenamee2">선택된 파일 없음</div>
               </div>
             </div>
-            <div>
-              <input id="title" name="title" placeholder="웹툰 제목을 입력해주세요." />
-              <input id="author" name="author" placeholder="작가 이름을 입력해주세요." />
-              <input id="comment" name="comment" placeholder="줄거리를 입력해주세요" />
+            <div class="inputbox">
+              <input oninput="checkBin('title')" id="title" name="title" placeholder="웹툰 제목을 입력해주세요." />
+              <input oninput="checkBin('author')" id="author" name="author" placeholder="작가 이름을 입력해주세요." />
+              <input oninput="checkBin('comment')" id="comment" name="comment" placeholder="줄거리를 입력해주세요" />
               <div>
-                <button onclick="createData(event)">등록</button>
+                <button class="btn" onclick="createData(event)" disabled>등록</button>
               </div>
             </div>
           </div>
@@ -78,18 +78,18 @@
                   <td>
                     <%= data[i].summary %>
                   </td>
-                  <td><button type="button" onclick="updatePage(`<%= data[i].id %>`)">수정</button></td>
-                  <td><button type="button" onclick="deletewebtoons(`<%= data[i].id %>`)">삭제</button></td>
+                  <td><button class="btn" type="button" onclick="updatePage(`<%= data[i].id %>`)">수정</button></td>
+                  <td><button class="btn" type="button" onclick="deletewebtoons(`<%= data[i].id %>`)">삭제</button></td>
                 </tr>
                 <%}%>
             </tbody>
           </table>
         </div>
       </div>
-      <div class="flexbox"></div>
-      <!-- 푸터 -->
-      <%- include("footer") -%>
     </div>
+    <div class="flexbox"></div>
+    <!-- 푸터 -->
+    <%- include("footer") -%>
 </body>
 
 <script src="/public/js/registration.js"></script>

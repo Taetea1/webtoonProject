@@ -84,7 +84,8 @@ img {
 /* 버튼 */
 .btn {
   display: block;
-  margin-left: auto;
+  margin: 0 auto;
+  width: 100%;
   padding: 10px 20px;
   background-color: #deb887;
   color: #fff;
@@ -107,15 +108,6 @@ button[disabled]:hover {
   background-color: gray;
 }
 
-/* .tablestyle {
-  width: 100%;
-}
-
-.tablebox {
-  max-width: 1280px;
-  margin: 0 auto;
-} */
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -129,6 +121,10 @@ table td {
   text-align: center;
 }
 
+table th {
+  padding: 5px 10px;
+}
+
 table thead {
   background-color: #f5deb3;
   text-align: center;
@@ -136,4 +132,15 @@ table thead {
 
 .inputs {
   display: flex;
+}
+
+.inputbox {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  input {
+    aspect-ratio: 1/0.08;
+    margin-bottom: 8px;
+  }
 }

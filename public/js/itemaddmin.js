@@ -1,8 +1,9 @@
+let isbincheck = [0, 0, 0, 0];
+
 const binImg = () => {
   const form = document.forms["mainForm"];
   const filenamee = document.querySelector(`.filenamee`);
   const imgpreview = document.getElementById(`select-img`);
-  const selectimg = document.getElementById(`image`);
   const fReader = new FileReader();
 
   filenamee.innerHTML = `<div>${form.image.files[0].name}</div>`;
@@ -13,11 +14,44 @@ const binImg = () => {
     imgpreview.innerHTML = `<div class="preimgbox"><img class="preimg" src="${path}" alt="선택한 이미지" /></div>`;
   };
 
-  // if (selectimg.value.length === 0) {
-  //   isbincheck[0] = 0;
-  // } else {
-  //   isbincheck[0] = 1;
-  // }
+  isbincheck[0] = 1;
+
+  check();
+};
+
+const checkBin = (id) => {
+  const input = document.getElementById(id).value;
+  if (id === "name") {
+    if (input.length === 0) {
+      isbincheck[1] = 0;
+    } else {
+      isbincheck[1] = 1;
+    }
+  } else if (id === "price") {
+    if (input.length === 0) {
+      isbincheck[2] = 0;
+    } else {
+      isbincheck[2] = 1;
+    }
+  } else if (id === "detail") {
+    if (input.length === 0) {
+      isbincheck[3] = 0;
+    } else {
+      isbincheck[3] = 1;
+    }
+  }
+  check();
+};
+
+const check = () => {
+  console.log(isbincheck);
+  const btn = document.querySelector(".btn");
+  const bincheck = isbincheck.filter((x) => x === 1);
+  if (bincheck.length === 4) {
+    btn.disabled = false;
+  } else {
+    btn.disabled = true;
+  }
 };
 
 const createData = (event) => {

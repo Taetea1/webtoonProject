@@ -73,7 +73,8 @@
 /* 버튼 */
 .btn {
   display: block;
-  margin-left: auto;
+  margin: 0 auto;
+  width: 100%;
   padding: 10px 20px;
   background-color: #deb887;
   color: #fff;
@@ -112,4 +113,34 @@ table td {
 table thead {
   background-color: #f5deb3;
   text-align: center;
+}
+
+table th {
+  padding: 5px 10px;
+}
+
+.flexbox {
+  flex: 1;
+}
+
+.mainbox {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.inputbox {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  input {
+    aspect-ratio: 1/0.08;
+    margin-bottom: 8px;
+  }
+}
+
+#types {
+  margin: 8px 0;
+  padding: 8px 0;
 }
