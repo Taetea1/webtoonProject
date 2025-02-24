@@ -1,13 +1,33 @@
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainbox {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 20px 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .selectimgbox {
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   margin-right: 10px;
   margin-bottom: 10px;
   position: relative;
 }
 
 .preimgbox {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   border: 2px dashed #aaa;
   border-radius: 10px;
   overflow: hidden;
@@ -37,8 +57,9 @@
 }
 
 .btn-upload {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
   border-radius: 10px;
   font-weight: 500;
   cursor: pointer;
@@ -66,13 +87,54 @@
   display: none;
 }
 
-/* 버튼 */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-size: 16px;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: rgb(169, 169, 253);
+  outline: none;
+  box-shadow: 0 0 5px rgba(169, 169, 253, 0.5);
+}
+
+#content {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background: white;
+  min-height: 150px;
+}
+
+.btnbox {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .btn {
   display: block;
-  margin: 0 auto;
-  width: 100%;
+  margin: 10px 0;
+  width: fit-content;
   padding: 10px 20px;
-  background-color: #deb887;
+  background-color: rgb(169, 169, 253);
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -81,11 +143,10 @@
 }
 
 .btn:hover {
-  background-color: #bc8f8f;
+  background-color: rgb(120, 120, 220);
 }
 
-.mainbox {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 20px;
+#name,
+#price {
+  box-sizing: border-box;
 }

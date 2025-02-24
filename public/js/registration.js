@@ -44,7 +44,7 @@ const checkBin = (id) => {
 
 const check = () => {
   console.log(isbincheck);
-  const btn = document.querySelector(".btn");
+  const btn = document.querySelector(".regibtn");
   const bincheck = isbincheck.filter((x) => x === 1);
   if (bincheck.length === 4) {
     btn.disabled = false;

@@ -1,3 +1,20 @@
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  width: fit-content;
+}
+
 .selectimgbox {
   width: 200px;
   margin-right: 10px;
@@ -66,24 +83,53 @@
   display: none;
 }
 
-table {
-  width: 100%;
-  table-layout: fixed;
-  word-wrap: break-word;
-  border-collapse: collapse;
-}
-
-table td {
-  border: 1px solid #d2b48c;
-  padding: 10px;
-  text-align: center;
-}
-
-table thead {
-  background-color: #f5deb3;
-  text-align: center;
-}
-
 .imgflex {
   display: flex;
+}
+
+button {
+  background-color: rgb(169, 169, 253);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: rgb(120, 120, 220);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.input-group input:focus {
+  border-color: rgb(169, 169, 253);
+  outline: none;
+  box-shadow: 0 0 5px rgba(169, 169, 253, 0.5);
+}
+
+#name,
+#author {
+  box-sizing: border-box;
 }

@@ -10,7 +10,6 @@
 </head>
 
 <body>
-  <h1>수정 페이지</h1>
   <form name="updateData">
     <div class="imgflex">
       <div class="selectimgbox">
@@ -28,14 +27,16 @@
         <input id="image2" oninput="binImg('2')" type="file" name="image2" />
       </div>
     </div>
-    <div>
-      제목
-      <input name="name" value="<%= data[0].name %>" />
+    <div class="input-group">
+      <label for="name">제목</label>
+      <input id="name" name="name" value="<%= data[0].name %>" />
     </div>
-    <div>
-      작가 이름
-      <input name="author" value="<%= data[0].author %>" />
+
+    <div class="input-group">
+      <label for="author">작가 이름</label>
+      <input id="author" name="author" value="<%= data[0].author %>" />
     </div>
+
     <button onclick="updateForm(event, `<%= data[0].id %>`)">수정</button>
   </form>
 </body>
