@@ -42,8 +42,16 @@ const putcart = (id) => {
           data: { id },
         })
           .then((res) => {
-            alert("장바구니에 담겼습니다.");
-            window.location.reload();
+            Swal.fire({
+              title: "장바구니에 담겼습니다!",
+              text: "장바구니에서 확인해주세요",
+              icon: "success",
+              confirmButtonText: "OK",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.reload();
+              }
+            });
           })
           .catch((e) => {
             console.log(e);
@@ -55,8 +63,16 @@ const putcart = (id) => {
           data: { id, num, originprice },
         })
           .then((res) => {
-            alert("장바구니 추가로 담겼습니다.");
-            window.location.reload();
+            Swal.fire({
+              title: "장바구니에 추가로 담겼습니다!",
+              text: "장바구니에서 확인해주세요",
+              icon: "success",
+              confirmButtonText: "OK",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.reload();
+              }
+            });
           })
           .catch((e) => {
             console.log(e);

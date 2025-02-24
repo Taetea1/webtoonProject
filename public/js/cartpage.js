@@ -17,9 +17,7 @@ const plus = (id) => {
     url: "/webtoons/cartput",
     data: { id, num, originprice },
   })
-    .then((res) => {
-      window.location.reload();
-    })
+    .then((res) => {})
     .catch((e) => {
       console.log(e);
     });
@@ -48,9 +46,7 @@ const minus = (id) => {
     url: "/webtoons/cartput",
     data: { id, num, originprice },
   })
-    .then((res) => {
-      // window.location.reload();
-    })
+    .then((res) => {})
     .catch((e) => {
       console.log(e);
     });
@@ -62,7 +58,6 @@ const allDelete = () => {
     url: `/webtoons/allcartitem`,
   })
     .then((res) => {
-      alert("삭제 성공");
       window.location.reload();
     })
     .catch((e) => {

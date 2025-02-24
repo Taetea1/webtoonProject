@@ -71,8 +71,15 @@ const createData = (event) => {
       data: formData,
     })
       .then((res) => {
-        alert("등록 성공");
-        window.location.reload();
+        Swal.fire({
+          title: "아이템 정보가 등록되었습니다!",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }
+        });
       })
       .catch((e) => {
         console.log(e);
@@ -85,8 +92,15 @@ const createData = (event) => {
       url: `/webtoons/itemdelete/${id}`,
     })
       .then((res) => {
-        alert("삭제 성공");
-        window.location.reload();
+        Swal.fire({
+          title: "삭제되었습니다!",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }
+        });
       })
       .catch((e) => {
         console.log(e);

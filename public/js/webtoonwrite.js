@@ -19,8 +19,15 @@ const updateForm = (event, id) => {
     data: formData,
   })
     .then((res) => {
-      alert("수정 성공!!");
-      window.location.href = "/webtoons/registration";
+      Swal.fire({
+        title: "수정되었습니다!",
+        icon: "success",
+        confirmButtonText: "OK",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = "/webtoons/registration";
+        }
+      });
     })
     .catch((e) => {});
 };
