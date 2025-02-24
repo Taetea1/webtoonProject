@@ -1,4 +1,4 @@
-let isbincheck = [0, 0, 0, 0, 0];
+let isbincheck = [0, 0, 0, 0];
 
 const binImg = (num) => {
   const form = document.forms["mainForm"];
@@ -42,12 +42,6 @@ const checkBin = (id) => {
     } else {
       isbincheck[3] = 1;
     }
-  } else if (id === "comment") {
-    if (input.length === 0) {
-      isbincheck[4] = 0;
-    } else {
-      isbincheck[4] = 1;
-    }
   }
   check();
 };
@@ -56,7 +50,7 @@ const check = () => {
   console.log(isbincheck);
   const btn = document.querySelector(".btn");
   const bincheck = isbincheck.filter((x) => x === 1);
-  if (bincheck.length === 5) {
+  if (bincheck.length === 4) {
     btn.disabled = false;
   } else {
     btn.disabled = true;
@@ -68,7 +62,6 @@ const createData = (event) => {
 
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
-  const comment = document.getElementById("comment").value;
   const image = document.getElementById("image").files[0];
   const image2 = document.getElementById("image2").files[0];
 
@@ -76,7 +69,6 @@ const createData = (event) => {
   const formData = new FormData();
   formData.append("name", title);
   formData.append("author", author);
-  formData.append("summary", comment);
   formData.append("image", image);
   formData.append("image2", image2);
 

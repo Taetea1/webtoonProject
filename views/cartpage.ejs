@@ -19,28 +19,33 @@
       </div>
 
       <main>
-        <div class="menuwrap">
-          <% data.forEach((x)=>{%>
-            <div class="itemwrap">
-              <a href="/webtoons/move/itemdetail/<%= x.itemid %>" class="atag">
-                <div class="itemimgbox">
-                  <img class="itemimg" src="<%= x.url %>" alt="상품이미지" />
+        <% if(data.length===0){ %>
+          <div>장바구니가 비어있습니다.</div>
+          <% } else{ %>
+            <div class="menuwrap">
+              <% data.forEach((x)=>{%>
+                <div class="itemwrap">
+                  <a href="/webtoons/move/itemdetail/<%= x.itemid %>" class="atag">
+                    <div class="itemimgbox">
+                      <img class="itemimg" src="<%= x.url %>" alt="상품이미지" />
+                    </div>
+                  </a>
+
+                  <div class="titletext">
+                    <%= x.name %>
+                  </div>
+                  <div class="pricetext">
+                    <%= x.price.toLocaleString() %>원
+                  </div>
+                  <div class="detailtext">
+                    <%= x.detail %>
+                  </div>
+
                 </div>
-              </a>
-
-              <div class="titletext">
-                <%= x.name %>
-              </div>
-              <div class="pricetext">
-                <%= x.price.toLocaleString() %>원
-              </div>
-              <div class="detailtext">
-                <%= x.detail %>
-              </div>
-
+                <% }); %>
             </div>
-            <% }); %>
-        </div>
+            <button class="allDeleteBtn" onclick="allDelete()">전체 삭제</button>
+            <% } %>
       </main>
     </div>
     <div class="flexbox"></div>
@@ -48,5 +53,6 @@
     <!-- 푸터 -->
     <%- include("footer") -%>
 </body>
+<script src="/public/js/cartpage.js"></script>
 
 </html>

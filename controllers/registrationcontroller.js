@@ -99,6 +99,12 @@ const deleteitemData = async (req, res) => {
   res.send("200");
 };
 
+// 모든 장바구니 아이템 삭제
+const deleteallcartData = async (req, res) => {
+  await registrationModel.deleteallcartRow();
+  res.send("200");
+};
+
 // 수정 페이지로 이동
 const moveWrite = async (req, res) => {
   const data = await registrationModel.getOne(req.params.id);
@@ -116,7 +122,7 @@ const moveitemWrite = async (req, res) => {
 const dataUpdate = async (req, res) => {
   try {
     const id = req.params.id;
-    const { name, author, summary } = req.body;
+    const { name, author } = req.body;
 
     // 현재 저장된 데이터 가져오기
     const existingData = (await registrationModel.getOne(id)) || {};
@@ -131,7 +137,6 @@ const dataUpdate = async (req, res) => {
     await registrationModel.updateRow({
       id,
       name,
-      summary,
       mainurl,
       bannerurl,
       author,
@@ -192,6 +197,7 @@ const cartitem = async (req, res) => {
 
 module.exports = {
   movecartPage,
+  deleteallcartData,
   cartitem,
   getAllWebtoon,
   moveAddminPage,

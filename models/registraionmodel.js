@@ -53,10 +53,9 @@ const getcateitem = async (userId) => {
 const postData = async (data) => {
   try {
     const query =
-      "INSERT INTO category (name, summary, mainurl, bannerurl, author) VALUES (?, ?, ?, ?, ?)";
+      "INSERT INTO category (name, mainurl, bannerurl, author) VALUES (?, ?, ?, ?)";
     await pool.query(query, [
       data.name,
-      data.summary,
       data.mainurl,
       data.bannerurl,
       data.author,
@@ -126,13 +125,22 @@ const deleteitemRow = async (id) => {
   }
 };
 
+// 장바구니 모든 아이템 삭제
+const deleteallcartRow = async () => {
+  const query = "DELETE FROM cart";
+  try {
+    await pool.query(query);
+  } catch (e) {
+    console.log(e, "삭제 실패");
+  }
+};
+
 // 해당 아이디를 가진 데이터 수정
 const updateRow = async (data) => {
-  const query = `UPDATE category SET name = ?, summary= ?, mainurl= ?, bannerurl= ?, author= ? where id= ?`;
+  const query = `UPDATE category SET name = ?, mainurl= ?, bannerurl= ?, author= ? where id= ?`;
   try {
     await pool.query(query, [
       data.name,
-      data.summary,
       data.mainurl,
       data.bannerurl,
       data.author,
@@ -161,6 +169,7 @@ const updateitemRow = async (data) => {
 
 module.exports = {
   putCartItem,
+  deleteallcartRow,
   getcart,
   getWebtoons,
   getitems,

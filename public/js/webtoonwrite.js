@@ -4,14 +4,12 @@ const updateForm = (event, id) => {
 
   const title = form["name"].value;
   const author = form["author"].value;
-  const comment = form["comment"].value;
   const image = document.getElementById("image").files[0];
   const image2 = document.getElementById("image2").files[0];
 
   const formData = new FormData();
   formData.append("name", title);
   formData.append("author", author);
-  formData.append("summary", comment);
   formData.append("image", image);
   formData.append("image2", image2);
 
@@ -31,7 +29,6 @@ const binImg = (num) => {
   const form = document.forms["updateData"];
   const filenamee = document.querySelector(`.filenamee${num}`);
   const imgpreview = document.getElementById(`select-img${num}`);
-  const selectimg = document.getElementById(`image${num}`);
   const fReader = new FileReader();
 
   if (num === "2") {
