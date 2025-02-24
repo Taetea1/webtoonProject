@@ -12,29 +12,20 @@
 <body>
   <h1>수정 페이지</h1>
   <form name="updateData">
-    <div class="selectimgbox">
-      <!-- 이미지 -->
-      <label for="image" id="select-img">
-        <div class="preimgbox"><img class="preimg" src="<%=data[0].mainurl %>" alt=" 선택한 이미지" /></div>
-      </label>
-      <input id="image" oninput="binImg('')" type="file" name="image" />
-      <div class="filenamee">
-        <div>
-          <%= data[0].mainurl.replace(/^.*\//, '' ) %>
-        </div>
+    <div class="imgflex">
+      <div class="selectimgbox">
+        <!-- 이미지 -->
+        <label for="image" id="select-img">
+          <div class="preimgbox"><img class="preimg" src="<%=data[0].mainurl %>" alt=" 선택한 이미지" /></div>
+        </label>
+        <input id="image" oninput="binImg('')" type="file" name="image" />
       </div>
-    </div>
-
-    <div class="selectimgbox">
-      <!-- 이미지 -->
-      <label for="image2" id="select-img2">
-        <div class="preimgbox"><img class="preimg" src="<%=data[0].bannerurl %>" alt="선택한 이미지" /></div>
-      </label>
-      <input id="image2" oninput="binImg('2')" type="file" name="image2" />
-      <div class="filenamee2">
-        <div>
-          <%= data[0].mainurl.replace(/^.*\//, '' ) %>
-        </div>
+      <div class="selectimgbox">
+        <!-- 이미지 -->
+        <label for="image2" id="select-img2">
+          <div class="preimgbox"><img class="preimg" src="<%=data[0].bannerurl %>" alt="선택한 이미지" /></div>
+        </label>
+        <input id="image2" oninput="binImg('2')" type="file" name="image2" />
       </div>
     </div>
     <div>

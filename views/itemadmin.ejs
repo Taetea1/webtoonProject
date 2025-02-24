@@ -25,7 +25,6 @@
                 <div class="btn-upload">상품이미지 선택</div>
               </label>
               <input id="image" oninput="binImg('')" type="file" name="image" />
-              <div class="filenamee">선택된 파일 없음</div>
             </div>
           </div>
           <div class="imginfo"></div>
@@ -75,7 +74,7 @@
                     <%= itemdata[i].name %>
                   </td>
                   <td>
-                    <%= itemdata[i].price %>
+                    <%= itemdata[i].price.toLocaleString() %>
                   </td>
                   <td>
                     <%= itemdata[i].detail %>

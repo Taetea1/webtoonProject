@@ -88,15 +88,6 @@
   background-color: #bc8f8f;
 }
 
-button:disabled {
-  cursor: not-allowed;
-  background-color: gray;
-}
-
-button[disabled]:hover {
-  background-color: gray;
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -125,6 +116,7 @@ table th {
 
 .mainbox {
   max-width: 1320px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -132,10 +124,10 @@ table th {
 .inputbox {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
 
   input {
-    aspect-ratio: 1/0.08;
+    height: 30px;
     margin-bottom: 8px;
   }
 }

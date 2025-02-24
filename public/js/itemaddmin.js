@@ -1,10 +1,8 @@
 const binImg = () => {
   const form = document.forms["mainForm"];
-  const filenamee = document.querySelector(`.filenamee`);
   const imgpreview = document.getElementById(`select-img`);
   const fReader = new FileReader();
 
-  filenamee.innerHTML = `<div>${form.image.files[0].name}</div>`;
   fReader.readAsDataURL(form.image.files[0]);
 
   fReader.onloadend = (event) => {

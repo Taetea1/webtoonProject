@@ -130,17 +130,16 @@ table thead {
   text-align: center;
 }
 
-.inputs {
-  display: flex;
-}
-
 .inputbox {
   display: flex;
   flex-direction: column;
-  width: 50%;
-
+  width: 100%;
   input {
-    aspect-ratio: 1/0.08;
+    height: 30px;
     margin-bottom: 8px;
   }
+}
+
+.imgflex {
+  display: flex;
 }

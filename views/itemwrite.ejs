@@ -12,47 +12,47 @@
 </head>
 
 <body>
-  <h1>수정 페이지</h1>
-  <form name="updateData">
-    <div class="selectimgbox">
-      <!-- 이미지 -->
-      <label for="image" id="select-img">
-        <div class="preimgbox"><img class="preimg" src="<%=data[0].url %>" alt=" 선택한 이미지" /></div>
-      </label>
-      <input id="image" oninput="binImg()" type="file" name="image" />
-      <div class="filenamee">
-        <div>
-          <%= data[0].url.replace(/^.*\//, '' ) %>
-        </div>
+  <div class="mainbox">
+    <h1>수정 페이지</h1>
+    <form name="updateData">
+      <div class="selectimgbox">
+        <!-- 이미지 -->
+        <label for="image" id="select-img">
+          <div class="preimgbox"><img class="preimg" src="<%=data[0].url %>" alt=" 선택한 이미지" /></div>
+        </label>
+        <input id="image" oninput="binImg()" type="file" name="image" />
       </div>
-    </div>
-    <div>
-      <label for="type-title">타입</label>
-      <select name="type" id="types">
-        <% webtoondata.forEach((x)=>{%>
-          <option value="<%= x.id %>">
-            <%= x.name %>
-          </option>
-          <% }) %>
-      </select>
-    </div>
-    <div>
-      상품명
-      <input name="name" value="<%= data[0].name %>" />
-    </div>
-    <div>
-      가격
-      <input type="number" name="price" value="<%= data[0].price %>" />
-    </div>
-    <!-- <div>
-      상세내용
-      <input name="detail" value="<%= data[0].detail %>" />
-    </div> -->
-    <div id="content">
-      <%= data[0].detail %>
-    </div>
-    <button onclick="updateForm(event, `<%= data[0].id %>`)">수정</button>
-  </form>
+      <div>
+        <label for="type-title">타입</label>
+        <select name="type" id="types">
+          <% webtoondata.forEach((x)=>{%>
+            <% if(x.id===data[0].cateid){ %>
+              <option value="<%= x.id %>" selected>
+                <%= x.name %>
+              </option>
+              <% } else{ %>
+                <option value="<%= x.id %>">
+                  <%= x.name %>
+                </option>
+                <% } %>
+
+                  <% }) %>
+        </select>
+      </div>
+      <div>
+        상품명
+        <input name="name" value="<%= data[0].name %>" />
+      </div>
+      <div>
+        가격
+        <input type="number" name="price" value="<%= data[0].price %>" />
+      </div>
+      <div id="content">
+        <%= data[0].detail %>
+      </div>
+      <button class="btn" onclick="updateForm(event, `<%= data[0].id %>`)">수정</button>
+    </form>
+  </div>
 </body>
 <script src="/public/js/itemwrite.js"></script>
 

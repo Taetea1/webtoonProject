@@ -2,16 +2,12 @@ let isbincheck = [0, 0, 0, 0];
 
 const binImg = (num) => {
   const form = document.forms["mainForm"];
-  const filenamee = document.querySelector(`.filenamee${num}`);
   const imgpreview = document.getElementById(`select-img${num}`);
   const fReader = new FileReader();
 
   if (num === "2") {
-    filenamee.innerHTML = `<div>${form.image2.files[0].name}</div>`;
-
     fReader.readAsDataURL(form.image2.files[0]);
   } else if (num === "") {
-    filenamee.innerHTML = `${form.image.files[0].name}`;
     fReader.readAsDataURL(form.image.files[0]);
   }
 

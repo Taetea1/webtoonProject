@@ -27,17 +27,12 @@ const updateForm = (event, id) => {
 
 const binImg = (num) => {
   const form = document.forms["updateData"];
-  const filenamee = document.querySelector(`.filenamee${num}`);
   const imgpreview = document.getElementById(`select-img${num}`);
   const fReader = new FileReader();
 
   if (num === "2") {
-    filenamee.innerHTML = `<div>${form.image2.files[0].name}</div>`;
-
     fReader.readAsDataURL(form.image2.files[0]);
   } else if (num === "") {
-    filenamee.innerHTML = `<div>${form.image.files[0].name}</div>`;
-
     fReader.readAsDataURL(form.image.files[0]);
   }
 
@@ -45,10 +40,4 @@ const binImg = (num) => {
     const path = event.target.result;
     imgpreview.innerHTML = `<div class="preimgbox"><img class="preimg" src="${path}" alt="선택한 이미지" /></div>`;
   };
-
-  // if (selectimg.value.length === 0) {
-  //   isbincheck[0] = 0;
-  // } else {
-  //   isbincheck[0] = 1;
-  // }
 };
