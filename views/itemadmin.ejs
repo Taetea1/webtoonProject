@@ -4,10 +4,12 @@
 <head>
   <link rel="stylesheet" href="/public/css/global.css" />
   <link rel="stylesheet" href="/public/css/itemaddmin.css" />
+  <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
 </head>
 
 <body>
@@ -26,6 +28,7 @@
               <div class="filenamee">선택된 파일 없음</div>
             </div>
           </div>
+          <div class="imginfo"></div>
           <div class="inputbox">
             <label for="type-title">타입</label>
             <select name="type" id="types">
@@ -37,9 +40,12 @@
             </select>
 
             <input oninput="checkBin('name')" id="name" name="name" placeholder="상품명을 입력해주세요." />
-            <input oninput="checkBin('price')" id="price" name="price" placeholder="가격을 입력해주세요." />
-            <input oninput="checkBin('detail')" id="detail" name="detail" placeholder="상세내용을 입력해주세요" />
-            <button class="btn" onclick="createData(event)" disabled>등록</button>
+            <div class="nameinfo"></div>
+            <input type="number" oninput="checkBin('price')" id="price" name="price" placeholder="가격을 입력해주세요." />
+            <div class="priceinfo"></div>
+            <div id="content" oninput="checkBin('content')"></div>
+            <div class="contentinfo"></div>
+            <button class="btn" onclick="createData(event)">등록</button>
           </div>
         </form>
         <br>

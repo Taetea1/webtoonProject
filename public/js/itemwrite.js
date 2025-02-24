@@ -1,10 +1,12 @@
+const detailcontent = document.getElementById("content").innerText;
+
 const updateForm = (event, id) => {
   event.preventDefault();
   const form = document.forms["updateData"];
 
   const name = form["name"].value;
   const price = form["price"].value;
-  const detail = form["detail"].value;
+  const detail = editor.getMarkdown();
   const image = document.getElementById("image").files[0];
   const types = document.getElementById("types").value;
 
@@ -31,7 +33,6 @@ const binImg = () => {
   const form = document.forms["updateData"];
   const filenamee = document.querySelector(`.filenamee`);
   const imgpreview = document.getElementById(`select-img`);
-  const selectimg = document.getElementById(`image`);
   const fReader = new FileReader();
 
   filenamee.innerHTML = `<div>${form.image.files[0].name}</div>`;
@@ -41,10 +42,13 @@ const binImg = () => {
     const path = event.target.result;
     imgpreview.innerHTML = `<div class="preimgbox"><img class="preimg" src="${path}" alt="선택한 이미지" /></div>`;
   };
-
-  // if (selectimg.value.length === 0) {
-  //   isbincheck[0] = 0;
-  // } else {
-  //   isbincheck[0] = 1;
-  // }
 };
+
+// 토스 에디터
+const editor = new toastui.Editor({
+  el: document.querySelector("#content"), //에디터 적용 요소
+  height: "300px", // 에디터 영역 높이 값
+  initialEditType: "markdown", // 최초로 보여줄 에디터 타입 (markdown || wysiwyg)
+  initialValue: `${detailcontent}`, // 내용의 초기 값(반드시 마크다운 문자열 형태)
+  previewStyle: "vertical", // 마크다운 프리뷰 스타일 (tab || vertical)
+});
