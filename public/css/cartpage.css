@@ -53,6 +53,14 @@
   display: flex;
   justify-content: center;
 }
+.allDeleteBtn {
+  padding: 10px 15px;
+  background-color: rgb(111, 111, 242);
+  color: white;
+  border: none;
+  border-radius: 5%;
+  cursor: pointer;
+}
 
 .cartbox {
   display: flex;
@@ -80,8 +88,19 @@
 
 .amountbox {
   display: flex;
+  width: fit-content;
+  background-color: #f5f5f5;
+  padding: 3px 8px;
+  border-radius: 8%;
 }
 
 .amount {
   margin: 0 8px;
+}
+
+.minus,
+.plus {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }

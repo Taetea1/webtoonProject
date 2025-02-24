@@ -54,14 +54,17 @@
                       <%= x.detail %>
                     </div>
                     <div class="pricetext">
-                      <%= x.price.toLocaleString() %>원
+                      <span class="pricebox<%=x.itemid %>">
+                        <%= x.price.toLocaleString() %>
+                      </span>원
+
                     </div>
-                    <div class="amountbox">
-                      <button>-</button>
-                      <div class="amount">
+                    <div class="amountbox amountbox">
+                      <button class="minus minus<%=x.itemid %>" onclick="minus(`<%= x.itemid %>`)">-</button>
+                      <div class="amount amount<%=x.itemid %>">
                         <%= x.amount %>
                       </div>
-                      <button>+</button>
+                      <button class="plus" onclick="plus(`<%= x.itemid %>`)">+</button>
                     </div>
                   </div>
                 </div>

@@ -204,7 +204,6 @@ const cartupdate = async (req, res) => {
 
     let sumamount = Number(req.body.num) + Number(amount);
     let sumprice = Number(req.body.originprice) * Number(sumamount);
-    console.log(req.body.originprice, "sfad");
 
     await registrationModel.updateCartItem({
       itemid,
