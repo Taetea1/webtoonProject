@@ -48,6 +48,12 @@ const getcateitem = async (userId) => {
   const [rows] = await pool.query(query, [Number(userId)]);
   return rows;
 };
+//id에 해당하는 장바구니아이템만 가져오기
+const getidcart = async (userId) => {
+  const query = `SELECT * FROM cart WHERE itemid = ?`;
+  const [rows] = await pool.query(query, [Number(userId)]);
+  return rows;
+};
 
 // 등록하기
 const postData = async (data) => {
@@ -90,14 +96,13 @@ const postitemData = async (data) => {
 const putCartItem = async (data) => {
   try {
     const query =
-      "INSERT INTO cart (itemid, name, price, detail, url, amount ) VALUES (?, ?, ?, ?, ?, ?)";
+      "INSERT INTO cart (itemid, name, price, detail, url ) VALUES (?, ?, ?, ?, ?)";
     await pool.query(query, [
       data.itemid,
       data.name,
       data.price,
       data.detail,
       data.url,
-      data.amount,
     ]);
     return "데이터가 성공적으로 등록되었습니다.";
   } catch (e) {
@@ -177,8 +182,26 @@ const updateitemRow = async (data) => {
     console.log(e);
   }
 };
+// 해당 아이디를 가진 장바구니 데이터 수정
+const updateCartItem = async (data) => {
+  const query = `UPDATE cart SET name = ?, price= ?, url= ?,  detail= ?, amount= ? where itemid= ?`;
+  try {
+    await pool.query(query, [
+      data.name,
+      data.sumprice,
+      data.url,
+      data.detail,
+      data.sumamount,
+      Number(data.itemid),
+    ]);
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 module.exports = {
+  getidcart,
+  updateCartItem,
   deleteonecartRow,
   putCartItem,
   deleteallcartRow,

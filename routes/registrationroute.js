@@ -10,6 +10,7 @@ router.get("/itemwrite/:id", registrationControl.moveitemWrite);
 router.get("/move/detail/:id", registrationControl.moveDetail);
 router.get("/move/itemdetail/:id", registrationControl.moveitemDetail);
 router.get("/cartpage", registrationControl.movecartPage);
+router.get("/getgetcart/:id", registrationControl.getcartData);
 
 router.post(
   "/post/test",
@@ -31,6 +32,11 @@ router.put(
   "/update/:id",
   registrationControl.upload,
   registrationControl.dataUpdate
+);
+router.put(
+  "/cartput",
+  registrationControl.upload,
+  registrationControl.cartupdate
 );
 router.put(
   "/itemupdate/:id",

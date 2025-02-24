@@ -17,6 +17,17 @@ const getAllWebtoon = async (req, res) => {
   res.render("main", { data });
 };
 
+// 장바구니 데이터 가져오기
+const getcartData = async (req, res) => {
+  const data = (await registrationModel.getidcart(req.params.id)) || {};
+
+  if (data.length > 0) {
+    res.send(`${data[0].amount}`); //중복하는 값이 있음
+  } else {
+    res.send("false");
+  }
+};
+
 // 등록페이지로 이동
 const moveAddminPage = async (req, res) => {
   const data = await registrationModel.getWebtoons();
@@ -180,6 +191,36 @@ const itemdataUpdate = async (req, res) => {
   }
 };
 
+// 장바구니 데이터 업데이트
+const cartupdate = async (req, res) => {
+  try {
+    // 현재 아이템데이터 가져오기
+    const existingData = (await registrationModel.getidcart(req.body.id)) || {};
+    const itemid = existingData[0].itemid;
+    const name = existingData[0].name;
+    const detail = existingData[0].detail;
+    const url = existingData[0].url;
+    const amount = existingData[0].amount;
+
+    let sumamount = Number(req.body.num) + Number(amount);
+    let sumprice = Number(req.body.originprice) * Number(sumamount);
+    console.log(req.body.originprice, "sfad");
+
+    await registrationModel.updateCartItem({
+      itemid,
+      name,
+      sumprice,
+      detail,
+      url,
+      sumamount,
+    });
+    res.send("200");
+  } catch (error) {
+    console.error("업데이트 실패:", error);
+    res.status(500).send("업데이트 실패");
+  }
+};
+
 // 장바구니 담기
 const cartitem = async (req, res) => {
   // 현재 아이템데이터 가져오기
@@ -190,20 +231,18 @@ const cartitem = async (req, res) => {
   const detail = existingData[0].detail;
   const url = existingData[0].url;
 
-  let amount = req.body.num;
-
   await registrationModel.putCartItem({
     itemid,
     name,
     price,
     detail,
     url,
-    amount,
   });
   res.send("200");
 };
 
 module.exports = {
+  getcartData,
   deleteonecartData,
   movecartPage,
   deleteallcartData,
@@ -221,5 +260,6 @@ module.exports = {
   moveitemWrite,
   itemdataUpdate,
   deleteitemData,
+  cartupdate,
   upload: upload.fields([{ name: "image" }, { name: "image2" }]),
 };
