@@ -11,6 +11,7 @@ router.get("/move/detail/:id", registrationControl.moveDetail);
 router.get("/move/itemdetail/:id", registrationControl.moveitemDetail);
 router.get("/cartpage", registrationControl.movecartPage);
 router.get("/getgetcart/:id", registrationControl.getcartData);
+router.get("/duplecheck", registrationControl.getdupletitle);
 
 router.post(
   "/post/test",

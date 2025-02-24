@@ -67,23 +67,40 @@ const createData = (event) => {
   formData.append("author", author);
   formData.append("image", image);
   formData.append("image2", image2);
-
   axios({
-    headers: { "Content-Type": "multipart/form-data" },
-    method: "post",
-    url: "/webtoons/post/test",
-    data: formData,
+    method: "get",
+    url: "/webtoons/duplecheck",
+    params: { title },
   })
     .then((res) => {
-      Swal.fire({
-        title: "웹툰정보가 등록되었습니다!",
-        icon: "success",
-        confirmButtonText: "OK",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.reload();
-        }
-      });
+      console.log(res.data);
+      if (res.data === false) {
+        axios({
+          headers: { "Content-Type": "multipart/form-data" },
+          method: "post",
+          url: "/webtoons/post/test",
+          data: formData,
+        })
+          .then((res) => {
+            Swal.fire({
+              title: "웹툰정보가 등록되었습니다!",
+              icon: "success",
+              confirmButtonText: "OK",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.reload();
+              }
+            });
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      } else {
+        Swal.fire({
+          title: "중복된 제목입니다. 다시 입력해주세요!",
+          icon: "info",
+        });
+      }
     })
     .catch((e) => {
       console.log(e);

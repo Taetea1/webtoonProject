@@ -28,6 +28,12 @@ const getcart = async () => {
   const [rows] = await pool.query(query);
   return rows;
 };
+// 제목 중복 확인
+const getdupletitles = async (title) => {
+  const query = "SELECT * FROM category where name=?";
+  const [rows] = await pool.query(query, [title]);
+  return rows;
+};
 
 // 해당하는 데이터 하나만 가져오기
 const getOne = async (userId) => {
@@ -200,6 +206,7 @@ const updateCartItem = async (data) => {
 };
 
 module.exports = {
+  getdupletitles,
   getidcart,
   updateCartItem,
   deleteonecartRow,

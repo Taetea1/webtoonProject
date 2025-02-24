@@ -14,22 +14,39 @@ const updateForm = (event, id) => {
   formData.append("image2", image2);
 
   axios({
-    method: "put",
-    url: `/webtoons/update/${id}`,
-    data: formData,
+    method: "get",
+    url: "/webtoons/duplecheck",
+    params: { title },
   })
     .then((res) => {
-      Swal.fire({
-        title: "수정되었습니다!",
-        icon: "success",
-        confirmButtonText: "OK",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = "/webtoons/registration";
-        }
-      });
+      if (res.data === false) {
+        axios({
+          method: "put",
+          url: `/webtoons/update/${id}`,
+          data: formData,
+        })
+          .then((res) => {
+            Swal.fire({
+              title: "수정되었습니다!",
+              icon: "success",
+              confirmButtonText: "OK",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = "/webtoons/registration";
+              }
+            });
+          })
+          .catch((e) => {});
+      } else {
+        Swal.fire({
+          title: "중복된 제목입니다. 다시 입력해주세요!",
+          icon: "info",
+        });
+      }
     })
-    .catch((e) => {});
+    .catch((e) => {
+      console.log(e);
+    });
 };
 
 const binImg = (num) => {
