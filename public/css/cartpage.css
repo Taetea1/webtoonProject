@@ -48,7 +48,10 @@
   background-color: #eee;
 }
 
-.allDeleteBtn {
+.allDeleteBtnbox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .cartbox {
@@ -73,4 +76,12 @@
 
 .deletebox {
   text-align: end;
+}
+
+.amountbox {
+  display: flex;
+}
+
+.amount {
+  margin: 0 8px;
 }

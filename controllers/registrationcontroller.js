@@ -190,12 +190,15 @@ const cartitem = async (req, res) => {
   const detail = existingData[0].detail;
   const url = existingData[0].url;
 
+  let amount = req.body.num;
+
   await registrationModel.putCartItem({
     itemid,
     name,
     price,
     detail,
     url,
+    amount,
   });
   res.send("200");
 };

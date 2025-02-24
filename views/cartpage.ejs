@@ -56,12 +56,22 @@
                     <div class="pricetext">
                       <%= x.price.toLocaleString() %>원
                     </div>
-
+                    <div class="amountbox">
+                      <button>-</button>
+                      <div class="amount">
+                        <%= x.amount %>
+                      </div>
+                      <button>+</button>
+                    </div>
                   </div>
                 </div>
+
                 <% }); %>
             </div>
-            <button class="allDeleteBtn" onclick="allDelete()">전체 삭제</button>
+            <div class="allDeleteBtnbox">
+              <button class="allDeleteBtn" onclick="allDelete()">전체 삭제</button>
+            </div>
+
             <% } %>
       </main>
     </div>

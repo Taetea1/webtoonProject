@@ -116,3 +116,24 @@
 .cartbtn:hover {
   background-color: rgb(84, 84, 180);
 }
+
+.amountwrap {
+  display: flex;
+  justify-content: space-between;
+}
+.amountbox {
+  display: flex;
+  background-color: #f5f5f5;
+  padding: 3px 8px;
+  border-radius: 8%;
+}
+
+.amount {
+  margin: 0 8px;
+}
+
+.minus,
+.plus {
+  border: none;
+  background-color: transparent;
+}

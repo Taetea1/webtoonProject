@@ -51,7 +51,16 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.cartbox {
+  width: 35px;
+  margin: 2px 5px 0 0;
+  cursor: pointer;
+}
 
+.personbox {
+  width: 40px;
+  cursor: pointer;
+}
 .setbox {
   display: flex;
 }
