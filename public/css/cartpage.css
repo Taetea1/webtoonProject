@@ -61,6 +61,19 @@
   border-radius: 5%;
   cursor: pointer;
 }
+.buyBtnbox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.buyBtn {
+  padding: 10px 15px;
+  background-color: #eee;
+  border: none;
+  border-radius: 5%;
+  cursor: pointer;
+}
 
 .cartbox {
   display: flex;
@@ -132,4 +145,57 @@
 .text8 {
   font-size: 17px;
   font-weight: bolder;
+}
+
+.menubox {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+}
+
+.itemwrap {
+  width: 65%;
+}
+
+.buywrap {
+  width: 35%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.order-card {
+  max-width: 400px;
+  margin: auto;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+.order-card h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+.order-card hr {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin: 20px 0;
+}
+.order-card .order-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+.order-card .total {
+  font-size: 18px;
+  font-weight: bolder;
+  color: #111;
+  margin-top: 15px;
 }
