@@ -240,6 +240,7 @@ const cartitem = async (req, res) => {
   const price = existingData[0].price;
   const detail = existingData[0].detail;
   const url = existingData[0].url;
+  const amount = req.body.num;
 
   await registrationModel.putCartItem({
     itemid,
@@ -247,6 +248,7 @@ const cartitem = async (req, res) => {
     price,
     detail,
     url,
+    amount,
   });
   res.send("200");
 };

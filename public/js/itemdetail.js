@@ -39,7 +39,7 @@ const putcart = (id) => {
         axios({
           method: "post",
           url: "/webtoons/cartpost",
-          data: { id },
+          data: { id, num },
         })
           .then((res) => {
             Swal.fire({

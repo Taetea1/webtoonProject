@@ -102,13 +102,14 @@ const postitemData = async (data) => {
 const putCartItem = async (data) => {
   try {
     const query =
-      "INSERT INTO cart (itemid, name, price, detail, url ) VALUES (?, ?, ?, ?, ?)";
+      "INSERT INTO cart (itemid, name, price, detail, url, amount ) VALUES (?, ?, ?, ?, ?, ?)";
     await pool.query(query, [
       data.itemid,
       data.name,
       data.price,
       data.detail,
       data.url,
+      data.amount,
     ]);
     return "데이터가 성공적으로 등록되었습니다.";
   } catch (e) {
