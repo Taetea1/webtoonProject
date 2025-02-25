@@ -26,8 +26,8 @@ const minus = () => {
 };
 const putcart = (id) => {
   let num = document.querySelector(".amount").innerText;
-  let price = document.querySelector(".pricebox").innerText.replace(/,/g, "");
-
+  // let price = document.querySelector(".pricebox").innerText.replace(/,/g, "");
+  // 장바구니에 없는 것도 num 보내주기
   axios({
     method: "get",
     url: `/webtoons/getgetcart/${id}`,
