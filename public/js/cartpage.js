@@ -15,6 +15,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+const buywrap = document.querySelector(".buywrap");
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 100) {
+    buywrap.classList.add("fix");
+  } else {
+    buywrap.classList.remove("fix");
+  }
+});
+
 const plus = (id) => {
   const prices = document.querySelector(`.pricebox${id}`);
   const amount = document.querySelector(`.amount${id}`);
