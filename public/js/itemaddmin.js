@@ -85,27 +85,26 @@ const createData = (event) => {
         console.log(e);
       });
   }
-
-  const deletewebtoons = (id) => {
-    axios({
-      method: "delete",
-      url: `/webtoons/itemdelete/${id}`,
-    })
-      .then((res) => {
-        Swal.fire({
-          title: "삭제되었습니다!",
-          icon: "success",
-          confirmButtonText: "OK",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            window.location.reload();
-          }
-        });
-      })
-      .catch((e) => {
-        console.log(e);
+};
+const deletewebtoons = (id) => {
+  axios({
+    method: "delete",
+    url: `/webtoons/itemdelete/${id}`,
+  })
+    .then((res) => {
+      Swal.fire({
+        title: "삭제되었습니다!",
+        icon: "success",
+        confirmButtonText: "OK",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.reload();
+        }
       });
-  };
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 };
 
 const updatePage = (id) => {
