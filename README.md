@@ -34,6 +34,8 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 
 ## 소개
 
+![Image](https://github.com/user-attachments/assets/2d58cd6e-d57a-4e7f-be5b-01cc3cbf4d1b)
+
 WebtoonPop는 웹툰 팬들을 위한 굿즈 쇼핑몰입니다.
 사용자는 웹툰 굿즈를 구경하며 마음에 드는 상품을 장바구니에 담을 수 있습니다.
 Axios를 활용한 API 통신, MySQL을 활용한 데이터 관리, 그리고 MVC 패턴을 적용하여 효율적인 코드 구조를 만들었습니다.
