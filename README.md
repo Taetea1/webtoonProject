@@ -52,8 +52,13 @@ Axios를 활용한 API 통신, MySQL을 활용한 데이터 관리, 그리고 MV
 **웹툰 삭제**</br>
 ![Image](https://github.com/user-attachments/assets/f60acdc8-3d84-4f30-bfa9-840ac3423798)
 
+**웹툰 제목 중복 확인**</br>
+![Image](https://github.com/user-attachments/assets/815dd5af-b7eb-40a8-ae66-28fa9dd8ad24)
+
 1.1.1  **웹툰 수정 페이지**</br>
 1.2  **아이템 등록 페이지**</br>
+**아이템 등록**</br>
+![Image](https://github.com/user-attachments/assets/8abd3ae8-dcb3-4bdd-9a04-407823a1c2f4)
 
 **아이템 삭제**</br>
 ![Image](https://github.com/user-attachments/assets/4f006518-1ab1-4934-b532-4f13c5247ec5)
