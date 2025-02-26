@@ -55,6 +55,9 @@ Axios를 활용한 API 통신, MySQL을 활용한 데이터 관리, 그리고 MV
 **웹툰 제목 중복 확인**</br>
 ![Image](https://github.com/user-attachments/assets/815dd5af-b7eb-40a8-ae66-28fa9dd8ad24)
 
+**웹툰 카테고리 추가**</br>
+![Image](https://github.com/user-attachments/assets/f880a4b2-9c9c-466b-be2a-3f883a2cbb1f)
+
 1.1.1  **웹툰 수정 페이지**</br>
 1.2  **아이템 등록 페이지**</br>
 **아이템 등록**</br>
@@ -66,19 +69,33 @@ Axios를 활용한 API 통신, MySQL을 활용한 데이터 관리, 그리고 MV
 **아이템 수정**</br>
 ![Image](https://github.com/user-attachments/assets/3d5f2c37-fe4e-4ef0-b059-463f9700360d)
 
+**아이템 입력 조건 확인**</br>
+![Image](https://github.com/user-attachments/assets/1e1a3346-75f1-4d06-9a23-01991d2d7c8e)
+
 1.2.1  **아이템 수정 페이지**</br>
 </br>
 
 2. **메인 페이지**</br>
 
+![Image](https://github.com/user-attachments/assets/ef373e70-6514-4a2e-8b1c-bbfec1e4d57d)
 
 </br>
 
 3. **웹툰 굿즈 페이지**</br>
 
+![Image](https://github.com/user-attachments/assets/0c79129d-3092-447d-a177-b2cd6777eafb)
+
 </br>
 
 4. **웹툰 굿즈 상세페이지**</br>
+
+![Image](https://github.com/user-attachments/assets/e97f05de-3de5-443b-abc3-eae2771bea05)
+
+**새로운 아이템 개수를 정해서 장바구니에 추가**</br>
+![Image](https://github.com/user-attachments/assets/b9188b50-ca8c-4ec7-89a1-5823010d5c20)
+
+**새로운 아이템 한개만 장바구니에 추가**</br>
+![Image](https://github.com/user-attachments/assets/529fefa3-65eb-4285-b9c2-2aff419a45cb)
 
 </br>
 
