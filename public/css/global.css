@@ -99,7 +99,7 @@ body {
   bottom: 30px;
   right: 5px;
   border-radius: 50%;
-  background-color: #8f6228;
+  background-color: rgb(255, 65, 65);
 }
 .count {
   color: white;

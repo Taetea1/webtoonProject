@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const registrationControl = require("../controllers/registrationcontroller");
+const upload = require("../middlewares/upload");
 
 router.get("/", registrationControl.getAllWebtoon);
 router.get("/registration", registrationControl.moveAddminPage);
@@ -15,33 +16,33 @@ router.get("/duplecheck", registrationControl.getdupletitle);
 
 router.post(
   "/post/test",
-  registrationControl.upload,
+  upload.fields([{ name: "image" }, { name: "image2" }]),
   registrationControl.createTest
 );
 router.post(
   "/post/item",
-  registrationControl.upload,
+  upload.fields([{ name: "image" }, { name: "image2" }]),
   registrationControl.createitem
 );
 router.post(
   "/cartpost",
-  registrationControl.upload,
+  upload.fields([{ name: "image" }, { name: "image2" }]),
   registrationControl.cartitem
 );
 
 router.put(
   "/update/:id",
-  registrationControl.upload,
+  upload.fields([{ name: "image" }, { name: "image2" }]),
   registrationControl.dataUpdate
 );
 router.put(
   "/cartput",
-  registrationControl.upload,
+  upload.fields([{ name: "image" }, { name: "image2" }]),
   registrationControl.cartupdate
 );
 router.put(
   "/itemupdate/:id",
-  registrationControl.upload,
+  upload.fields([{ name: "image" }, { name: "image2" }]),
   registrationControl.itemdataUpdate
 );
 

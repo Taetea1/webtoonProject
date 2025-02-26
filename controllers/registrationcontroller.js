@@ -1,15 +1,5 @@
 const registrationModel = require("../models/registraionmodel");
-const multer = require("multer");
 const path = require("path");
-
-// 이미지 업로드 설정
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "uploads/"),
-  filename: (req, file, cb) =>
-    cb(null, Date.now() + path.extname(file.originalname)),
-});
-
-const upload = multer({ storage });
 
 // 모든 데이터 가져오기
 const getAllWebtoon = async (req, res) => {
@@ -79,6 +69,8 @@ const movecartPage = async (req, res) => {
 
 // db에 저장
 const createTest = async (req, res) => {
+  console.log(req.files.image[0].filename, "maing");
+  console.log(req.files.image2[0].filename, "ban");
   const { name, author, summary } = req.body;
   const mainurl = req.files.image
     ? `/uploads/${req.files.image[0].filename}`
@@ -280,5 +272,4 @@ module.exports = {
   itemdataUpdate,
   deleteitemData,
   cartupdate,
-  upload: upload.fields([{ name: "image" }, { name: "image2" }]),
 };

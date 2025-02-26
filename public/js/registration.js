@@ -67,13 +67,13 @@ const createData = (event) => {
   formData.append("author", author);
   formData.append("image", image);
   formData.append("image2", image2);
+
   axios({
     method: "get",
     url: "/webtoons/duplecheck",
     params: { title },
   })
     .then((res) => {
-      console.log(res.data);
       if (res.data === false) {
         axios({
           headers: { "Content-Type": "multipart/form-data" },
