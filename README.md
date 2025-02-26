@@ -97,9 +97,24 @@ Axios를 활용한 API 통신, MySQL을 활용한 데이터 관리, 그리고 MV
 **새로운 아이템 한개만 장바구니에 추가**</br>
 ![Image](https://github.com/user-attachments/assets/529fefa3-65eb-4285-b9c2-2aff419a45cb)
 
+**장바구니에 있던 아이템을 장바구니에 추가**</br>
+![Image](https://github.com/user-attachments/assets/3cf88cff-9aaa-4124-804b-4970f0e9edb0)
+
 </br>
 
 5. **장바구니 페이지**</br>
+
+**장바구니 삭제**
+![Image](https://github.com/user-attachments/assets/090b4dc4-14da-4037-895c-eca13971cf0c)
+
+**장바구니 이동**
+![Image](https://github.com/user-attachments/assets/bfbf3103-585a-4bef-a107-a1dd96b2d81c)
+
+**장바구니 주문정보 고정**
+![Image](https://github.com/user-attachments/assets/e4cdd275-4877-4de2-9896-5284e03d894d)
+
+**아이템 개수 조정**
+![Image](https://github.com/user-attachments/assets/a4d1857d-2021-445a-8a48-fe449a22aaa1)
 
 </br>
 
