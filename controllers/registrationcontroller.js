@@ -14,7 +14,8 @@ const upload = multer({ storage });
 // 모든 데이터 가져오기
 const getAllWebtoon = async (req, res) => {
   const data = await registrationModel.getWebtoons();
-  res.render("main", { data });
+  const cartcount = await registrationModel.getcart();
+  res.render("main", { data, cartcount });
 };
 
 // 장바구니 데이터 가져오기
@@ -42,33 +43,38 @@ const getdupletitle = async (req, res) => {
 // 등록페이지로 이동
 const moveAddminPage = async (req, res) => {
   const data = await registrationModel.getWebtoons();
-  res.render("registration", { data });
+  const cartcount = await registrationModel.getcart();
+  res.render("registration", { data, cartcount });
 };
 // 아이템등록페이지로 이동
 const moveitemAddminPage = async (req, res) => {
   const itemdata = await registrationModel.getitems();
   const data = await registrationModel.getWebtoons();
-  res.render("itemadmin", { itemdata, data });
+  const cartcount = await registrationModel.getcart();
+  res.render("itemadmin", { itemdata, data, cartcount });
 };
 
 // 상세페이지로 이동
 const moveDetail = async (req, res) => {
   const data = await registrationModel.getOne(req.params.id);
   const itemdata = await registrationModel.getcateitem(req.params.id);
-  res.render("detail", { data, itemdata });
+  const cartcount = await registrationModel.getcart();
+  res.render("detail", { data, itemdata, cartcount });
 };
 
 // 아이템 상세페이지로 이동
 const moveitemDetail = async (req, res) => {
   const itemdata = await registrationModel.getitemOne(req.params.id);
   const data = await registrationModel.getOne(itemdata[0].cateid);
-  res.render("itemdetail", { data, itemdata });
+  const cartcount = await registrationModel.getcart();
+  res.render("itemdetail", { data, itemdata, cartcount });
 };
 
 // 장바구니 페이지로 이동
 const movecartPage = async (req, res) => {
   const data = await registrationModel.getcart();
-  res.render("cartpage", { data });
+  const cartcount = await registrationModel.getcart();
+  res.render("cartpage", { data, cartcount });
 };
 
 // db에 저장

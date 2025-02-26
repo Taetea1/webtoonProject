@@ -87,3 +87,26 @@ body {
   border-top: 1px solid #eee;
   margin-top: 30px;
 }
+
+.countwrap {
+  position: relative;
+}
+
+.countbox {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  bottom: 30px;
+  right: 5px;
+  border-radius: 50%;
+  background-color: #8f6228;
+}
+.count {
+  color: white;
+  height: 100%;
+  font-size: 10px;
+  display: flex;
+  font-weight: 300px;
+  justify-content: center;
+  align-items: center;
+}
