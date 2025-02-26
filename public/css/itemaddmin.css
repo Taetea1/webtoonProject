@@ -164,3 +164,8 @@ table th {
   color: rgb(255, 93, 93);
   font-size: small;
 }
+
+.itemimg {
+  width: 100%;
+  height: 100%;
+}
