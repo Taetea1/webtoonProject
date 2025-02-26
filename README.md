@@ -43,8 +43,24 @@ Axios를 활용한 API 통신, MySQL을 활용한 데이터 관리, 그리고 MV
 ## 주요 기능
 1. **관리자 페이지**</br>
 1.1  **웹툰 등록 페이지**</br>
+**웹툰 등록**</br>
+![Image](https://github.com/user-attachments/assets/73b7f4c1-7f31-4197-8af3-1d1146e31d46)
+
+**웹툰 수정**</br>
+![Image](https://github.com/user-attachments/assets/92ef324f-cf9b-4d97-8a52-859e3e51457d)
+
+**웹툰 삭제**</br>
+![Image](https://github.com/user-attachments/assets/f60acdc8-3d84-4f30-bfa9-840ac3423798)
+
 1.1.1  **웹툰 수정 페이지**</br>
 1.2  **아이템 등록 페이지**</br>
+
+**아이템 삭제**</br>
+![Image](https://github.com/user-attachments/assets/4f006518-1ab1-4934-b532-4f13c5247ec5)
+
+**아이템 수정**</br>
+![Image](https://github.com/user-attachments/assets/3d5f2c37-fe4e-4ef0-b059-463f9700360d)
+
 1.2.1  **아이템 수정 페이지**</br>
 </br>
 
@@ -62,6 +78,10 @@ Axios를 활용한 API 통신, MySQL을 활용한 데이터 관리, 그리고 MV
 </br>
 
 5. **장바구니 페이지**</br>
+
+</br>
+
+5. **반응형**</br>
 
 </br>
 
