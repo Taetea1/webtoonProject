@@ -7,11 +7,6 @@
   max-width: 1320px;
   margin: 0 auto;
 }
-.menuwrap {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 
 .textbox {
   width: 100%;
@@ -147,23 +142,6 @@
   font-weight: bolder;
 }
 
-.menubox {
-  position: relative;
-  width: 100%;
-  min-height: 400px;
-}
-
-.itemwrap {
-  width: 65%;
-}
-
-.buywrap {
-  width: 35%;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 .order-card {
   max-width: 400px;
   margin: auto;
@@ -200,8 +178,31 @@
   margin-top: 15px;
 }
 
+.allWrap {
+  width: 100%;
+  display: flex;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.menuwrap {
+  width: 65%;
+  margin-right: 20px;
+}
+
+.buywrap {
+  position: relative;
+  width: 35%;
+  height: auto;
+}
+
 .fix {
-  position: fixed;
-  margin-top: 100px;
-  margin-right: 13px;
+  position: sticky;
+}
+
+.buybox {
+  width: 90%;
+  top: 100px;
+  right: 0;
 }

@@ -37,104 +37,106 @@
                 </div>
               </div>
               <% } else{ %>
-                <div class="menuwrap">
-                  <hr />
-                  <div class="menubox">
-                    <% data.forEach((x)=>{%>
-                      <div class="itemwrap">
-                        <a href="/webtoons/move/itemdetail/<%= x.itemid %>" class="atag">
-                          <div class="itemimgbox">
-                            <img class="itemimg" src="<%= x.url %>" alt="상품이미지" />
-                          </div>
-                        </a>
-                        <div class="textbox">
-                          <div class="deletebox">
-                            <img class="deleteimg" src="/public/image/close.png" onclick="deleteone(`<%= x.id %>`)" />
-                          </div>
-                          <div class="titletext">
-                            <%= x.name %>
-                          </div>
-                          <div class="detailtext">
-                            <%= x.detail %>
-                          </div>
-                          <div class="pricetext">
-                            <span class="pricebox<%=x.itemid %>">
-                              <%= x.price.toLocaleString() %>
-                            </span>원
-
-                          </div>
-                          <div class="amountbox amountbox">
-                            <button class="minus minus<%=x.itemid %>" onclick="minus(`<%= x.itemid %>`)">-</button>
-                            <div class="amount amount<%=x.itemid %>">
-                              <%= x.amount %>
+                <div class="allWrap">
+                  <div class="menuwrap">
+                    <hr />
+                    <div class="menubox">
+                      <% data.forEach((x)=>{%>
+                        <div class="itemwrap">
+                          <a href="/webtoons/move/itemdetail/<%= x.itemid %>" class="atag">
+                            <div class="itemimgbox">
+                              <img class="itemimg" src="<%= x.url %>" alt="상품이미지" />
                             </div>
-                            <button class="plus" onclick="plus(`<%= x.itemid %>`)">+</button>
+                          </a>
+                          <div class="textbox">
+                            <div class="deletebox">
+                              <img class="deleteimg" src="/public/image/close.png" onclick="deleteone(`<%= x.id %>`)" />
+                            </div>
+                            <div class="titletext">
+                              <%= x.name %>
+                            </div>
+                            <div class="detailtext">
+                              <%= x.detail %>
+                            </div>
+                            <div class="pricetext">
+                              <span class="pricebox<%=x.itemid %>">
+                                <%= x.price.toLocaleString() %>
+                              </span>원
+
+                            </div>
+                            <div class="amountbox amountbox">
+                              <button class="minus minus<%=x.itemid %>" onclick="minus(`<%= x.itemid %>`)">-</button>
+                              <div class="amount amount<%=x.itemid %>">
+                                <%= x.amount %>
+                              </div>
+                              <button class="plus" onclick="plus(`<%= x.itemid %>`)">+</button>
+                            </div>
                           </div>
+                        </div>
+
+                        <% totalprice+=Number(x.price)%>
+                          <% totalamount+=Number(x.amount) %>
+                            <% }); %>
+
+                    </div>
+                    <hr />
+                    <div class="totalwrap">
+                      <div class="totalbox">
+                        <div class="text1">상품 금액</div>
+                        <div class="text2">
+                          <%= totalprice.toLocaleString() %>원
+                        </div>
+                        <div class="text3">+</div>
+                        <div class="text4">배송비</div>
+                        <div class="text5">3,000원</div>
+                        <div class="text6">=</div>
+                        <div class="text7">주문 금액</div>
+                        <div class="text8">
+                          <%= (totalprice+3000).toLocaleString() %>원
                         </div>
                       </div>
 
-                      <% totalprice+=Number(x.price)%>
-                        <% totalamount+=Number(x.amount) %>
-                          <% }); %>
-                            <div class="buywrap">
-                              <div class="buybox">
-                                <div class="order-card">
-                                  <h2>주문 정보</h2>
-                                  <hr />
-                                  <div class="order-item">
-                                    총 수량
-                                    <span>
-                                      <%= totalamount %>개
-                                    </span>
-                                  </div>
-                                  <div class="order-item">
-                                    총 상품금액
-                                    <span>
-                                      <%= totalprice.toLocaleString() %>원
-                                    </span>
-                                  </div>
-                                  <div class="order-item">
-                                    총 배송비
-                                    <span>
-                                      3,000원
-                                    </span>
-                                  </div>
-                                  <hr />
-                                  <div class="order-item total">
-                                    총 주문금액
-                                    <span>
-                                      <%= (totalprice+3000).toLocaleString() %>원
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="buyBtnbox">
-                                <button class="buyBtn" onclick="readyalert()">주문서 작성</button>
-                              </div>
-                            </div>
+                    </div>
+                    <div class="allDeleteBtnbox">
+                      <button class="allDeleteBtn" onclick="allDelete()">전체 삭제</button>
+                    </div>
                   </div>
-                  <hr />
-                  <div class="totalwrap">
-                    <div class="totalbox">
-                      <div class="text1">상품 금액</div>
-                      <div class="text2">
-                        <%= totalprice.toLocaleString() %>원
+                  <div class="buywrap">
+                    <div class="buybox">
+                      <div class="order-card">
+                        <h2>주문 정보</h2>
+                        <hr />
+                        <div class="order-item">
+                          총 수량
+                          <span>
+                            <%= totalamount %>개
+                          </span>
+                        </div>
+                        <div class="order-item">
+                          총 상품금액
+                          <span>
+                            <%= totalprice.toLocaleString() %>원
+                          </span>
+                        </div>
+                        <div class="order-item">
+                          총 배송비
+                          <span>
+                            3,000원
+                          </span>
+                        </div>
+                        <hr />
+                        <div class="order-item total">
+                          총 주문금액
+                          <span>
+                            <%= (totalprice+3000).toLocaleString() %>원
+                          </span>
+                        </div>
                       </div>
-                      <div class="text3">+</div>
-                      <div class="text4">배송비</div>
-                      <div class="text5">3,000원</div>
-                      <div class="text6">=</div>
-                      <div class="text7">주문 금액</div>
-                      <div class="text8">
-                        <%= (totalprice+3000).toLocaleString() %>원
+                      <div class="buyBtnbox">
+                        <button class="buyBtn" onclick="readyalert()">주문서 작성</button>
                       </div>
                     </div>
-
                   </div>
-                </div>
-                <div class="allDeleteBtnbox">
-                  <button class="allDeleteBtn" onclick="allDelete()">전체 삭제</button>
                 </div>
 
                 <% } %>

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const buywrap = document.querySelector(".buywrap");
+const buywrap = document.querySelector(".buybox");
 window.addEventListener("scroll", function () {
   if (window.scrollY > 100) {
     buywrap.classList.add("fix");
