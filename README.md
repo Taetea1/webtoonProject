@@ -106,21 +106,36 @@ Axios를 활용한 API 통신, MySQL을 활용한 데이터 관리, 그리고 MV
 
 5. **장바구니 페이지**</br>
 
-**장바구니 삭제**
+**장바구니 삭제**</br>
 ![Image](https://github.com/user-attachments/assets/090b4dc4-14da-4037-895c-eca13971cf0c)
 
-**장바구니 이동**
+**장바구니 이동**</br>
 ![Image](https://github.com/user-attachments/assets/bfbf3103-585a-4bef-a107-a1dd96b2d81c)
 
-**장바구니 주문정보 고정**
+**장바구니 주문정보 고정**</br>
 ![Image](https://github.com/user-attachments/assets/e4cdd275-4877-4de2-9896-5284e03d894d)
 
-**아이템 개수 조정**
+**아이템 개수 조정**</br>
 ![Image](https://github.com/user-attachments/assets/a4d1857d-2021-445a-8a48-fe449a22aaa1)
 
 </br>
 
 5. **반응형**</br>
+**메인페이지 반응형**</br>
+
+![Image](https://github.com/user-attachments/assets/198201cd-fda1-4d93-8d28-ff9e94ffc9c5)
+
+**굿즈페이지 반응형**</br>
+
+![Image](https://github.com/user-attachments/assets/6eaabe2e-0043-44a1-ba85-87777b4de271)
+
+**굿즈상세페이지 반응형**</br>
+
+![Image](https://github.com/user-attachments/assets/9c152fec-8c10-4947-84ad-1c6fad47b1c5)
+
+**장바구니페이지 반응형**</br>
+
+![Image](https://github.com/user-attachments/assets/907e5942-e438-4c16-9a4e-c2aeb538a693)
 
 </br>
 
