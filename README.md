@@ -1,4 +1,4 @@
-## WebtoonPop Web Project
+## 🎨WebtoonPop Web Project
 
 > **목차**
 > 1. [프로젝트 기술 스택 및 개발 환경](#프로젝트-기술-스택-및-개발-환경)
@@ -9,8 +9,8 @@
 
 </br>
 
-## 💻프로젝트 기술 스택 및 개발 환경
-### 기술 스택
+## 🔍프로젝트 기술 스택 및 개발 환경
+### 🛠️기술 스택
 <img 
 src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white" />
 <img src="https://img.shields.io/badge/css3-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white" />
@@ -22,7 +22,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 ![EJS](https://img.shields.io/badge/EJS-8A2BE2?style=for-the-badge)
 
 
-### 개발 환경
+### 💻개발 환경
 <img src="https://img.shields.io/badge/visual%20studio%20code-%23007ACC.svg?&style=for-the-badge&logo=visual%20studio%20code&logoColor=white" /> <img src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" />
 
 <br>
@@ -32,7 +32,7 @@ src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=
 
 <br>
 
-## 소개
+## 📝소개
 
 ![Image](https://github.com/user-attachments/assets/2d58cd6e-d57a-4e7f-be5b-01cc3cbf4d1b)
 
@@ -42,7 +42,7 @@ Axios를 활용한 API 통신, MySQL을 활용한 데이터 관리, 그리고 MV
 
 <br>
 
-## 주요 기능
+## 💎주요 기능
 ### 관리자 페이지</br>
 1-1.  **웹툰 등록 페이지**</br></br>
 **:one:웹툰 등록**</br>
@@ -185,7 +185,7 @@ Axios를 활용한 API 통신, MySQL을 활용한 데이터 관리, 그리고 MV
 
 </br>
 
-## 사용된 라이브러리 및 API
+## 📑사용된 라이브러리 및 API
 ### 라이브러리
 - [SweetAlert2](https://sweetalert2.github.io/)
   - 모던한 디자인의 알림창을 제공하는 JavaScript 라이브러리
