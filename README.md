@@ -119,6 +119,7 @@ Axios를 활용한 API 통신, MySQL을 활용한 데이터 관리, 그리고 MV
 ![Image](https://github.com/user-attachments/assets/e97f05de-3de5-443b-abc3-eae2771bea05)
 - 아이템 클릭시 해당 아이템의 상세페이지로 이동
 - 수량 변경시 총 상품 금액을 사용자에게 보여줌
+- 배달 예상일 자동으로 변경
 </br></br>
 
 **:one:새로운 아이템 개수를 정해서 장바구니에 추가**</br>
